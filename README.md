@@ -12,12 +12,12 @@ Felon pulls out a wrinkled napkin full of scribbles. "Here are the specs. When c
 
 PGOF is an evolving autonoumous parking system for autonoumous vehicles. PGOF must perform each of the following tasks: 
 
-1 Each time PGOF starts it must check for the number of lots because the hardware is constantly replicating more lots based on demand forecasts.
-2 Autonomous vehicles join the waiting line in order of arrival.
-3 Vehicles come in sizes of `{1, 2, 3}`.
-4 Each car arrives with a requested wait time `{1, 2, 3, 4, 5, .., 10}`.
-5 The parking lot comprises N parking lots with size `{1, 2, 3}`.
-6 The following parking states are allowed:
+1. Each time PGOF starts it must check for the number of lots because the hardware is constantly replicating more lots based on demand forecasts.
+2. Autonomous vehicles join the waiting line in order of arrival.
+3. Vehicles come in sizes of `{1, 2, 3}`.
+4. Each car arrives with a requested wait time `{1, 2, 3, 4, 5, .., 10}`.
+5. The parking lot comprises N parking lots with size `{1, 2, 3}`.
+6. The following parking states are allowed:
    - lot = `{1, 2, 3}` holds no cars `{0}`
    - lot = `{1}` holds car = `{1}`
    - lot = `{2}` holds car = `{1, 2}`
