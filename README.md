@@ -7,6 +7,7 @@ You are a world renowned freelance software developer, just finished a crazy wil
 In walks Felon Tusk, the notorious giga entrepeneur. Felon scans the shop, immediately recognizes you by your weathered beret, walks over and takes a chair at your table. "I need your services, big money. I have this idea for an autonomous parking gargage platform called PGOF, Parking garage of the Future." Felon pulls out a wrinkled napkin full of scribbles. "Here are the specs. When can we go live?" You look at the specs, think for a moment. Why not, it's only Tuesday after all. You reply, "Tomorrow this time."  Felon nods curtly and scurries out of the coffee shop; while you pull out your lap top and get to work ...
 
 ## PGOF Software Requirments
+
 ![PGOF scene with queue, parking lots, and leaving cars](PGOF.drawio.svg)
 
 PGOF is an evolving autonomous parking system for autonomous vehicles. PGOF must perform each of the following tasks: 
@@ -36,3 +37,59 @@ PGOF is an evolving autonomous parking system for autonomous vehicles. PGOF must
 3. A data model that supports the problem.
 4. Good use of C++ language features to implement PGOF.
 5. A suite of tests that prove PGOF is defect free.
+
+## Recommended Project structure 
+project-root/
+├── CMakeLists.txt
+├── cmake/                 # CMake helper modules (Find*.cmake, presets, etc.)
+├── include/               # Public headers (exported API)
+│   └── project/           # Namespaced headers
+├── src/                   # Core source for main project library
+│   ├── CMakeLists.txt
+│   └── *.cpp
+├── libs/                  # Internal libraries (each self-contained)
+│   ├── libA/
+│   │   ├── include/libA/
+│   │   ├── src/
+│   │   └── CMakeLists.txt
+│   └── libB/
+│       ├── include/libB/
+│       ├── src/
+│       └── CMakeLists.txt
+├── apps/                  # Applications / executables
+│   ├── app1/
+│   │   ├── src/
+│   │   └── CMakeLists.txt
+│   └── app2/
+│       ├── src/
+│       └── CMakeLists.txt
+├── tests/                 # Unit tests (CTest, GoogleTest, etc.)
+│   ├── CMakeLists.txt
+│   └── test_*.cpp
+├── docs/                  # Documentation (Doxygen, Sphinx, Markdown)
+│   └── CMakeLists.txt
+├── resources/             # Runtime assets (images, configs, shaders, etc.)
+└── extern/                # External dependencies (git submodules, vendored libs)
+
+## Garage Capacity Library
+
+A new C++ library is available to compute the garage capacity split by space size.
+
+Input:
+- `N` = number of spaces in the garage
+- valid range: `10 <= N <= 1000000`
+
+Output:
+- `N1` = number of size-1 spaces
+- `N2` = number of size-2 spaces
+- `N3` = number of size-3 spaces
+
+API:
+- Header: `libs/garage_capacity/include/pgof/garage_capacity.hpp`
+- Function: `pgof::garage::calculate_garage_capacity(int total_spaces)`
+- Return type: `pgof::garage::garage_capacity { n1, n2, n3 }`
+
+Behavior:
+- The implementation splits `N` as evenly as possible across `N1`, `N2`, and `N3`.
+- If `N` is outside the valid range, the function throws `std::out_of_range`.
+
