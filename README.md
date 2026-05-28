@@ -4,11 +4,11 @@ Design problem for Parking Garage of the Future
 
 ![PGOF scene with queue, parking lots, and leaving cars](./PGOF.svg)
 
-You are a world renowned freelance software developer just finsihed your last gig. You are relaxing in your favorite coffee shop, the Dangling Pointer, enjoying the grandeur of the best cappucino ever to grace the hands of a barrista waiting for casting call. In walks Felon Tusk, the notorious giga entrepeneur. Giga scans the shop, immediately recognizes you by your weathered beret, walks over and takes a chair at your table.
+You are a world renowned freelance software developer just finsihed a crazy wild gig. You are relaxing in your favorite coffee shop, the Dangling Pointer, enjoying the grandeur of the best cappucino ever to grace the desperate hands of a barrista waiting for casting call. In walks Felon Tusk, the notorious giga entrepeneur. Felon scans the shop, immediately recognizes you by your weathered beret, walks over and takes a chair at your table.
 "I need you services, big money. I have this idea for an autonomous parking gargage platform called PGOF, Parking garage of the future." 
 Felon pulls out a wrinkled napkin full of scribbles. "Here are the specs. When can we go live?"
 You look at the specs, think for a moment, why not it's only Tuesday after all. 
-"Tomorrow this time, here."  Felon scurries out of the cofees hop while you pull out you lap top and get to work.
+"Tomorrow this time, here."  Felon scurries out of the coffee shop while you pull out your lap top and get to work ...
 
 ## PGOF Software Requirments
 
@@ -29,7 +29,8 @@ PGOF is an evolving autonoumous parking system for autonoumous vehicles. PGOF mu
 9. Each time PGOF starts it must check for the number of lots because the hardware is constantly replicating more lots based on demand forecasts.
 10. Design and implement PGOF in C++.
 
-Key aattributes of a successful solution are:
+## Key aattributes of a successful solution are:
+
 1. Ensuring top level use cases are well defined.
 2. Definition of a system architecture that scales and satisfies best design practices and key quality attributes.
 3. A data model that supports the problem.
