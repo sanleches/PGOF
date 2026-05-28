@@ -12,22 +12,22 @@ Felon pulls out a wrinkled napkin full of scribbles. "Here are the specs. When c
 
 PGOF is an evolving autonoumous parking system for autonoumous vehicles. PGOF must perform each of the following tasks: 
 
-# Each time PGOF starts it must check for the number of lots because the hardware is constantly replicating more lots based on demand forecasts.
-# Autonomous vehicles join the waiting line in order of arrival.
-# Vehicles come in sizes of `{1, 2, 3}`.
-# Each car arrives with a requested wait time `{1, 2, 3, 4, 5, .., 10}`.
-# The parking lot comprises N parking lots with size `{1, 2, 3}`.
-# The following parking states are allowed:
+1 Each time PGOF starts it must check for the number of lots because the hardware is constantly replicating more lots based on demand forecasts.
+2 Autonomous vehicles join the waiting line in order of arrival.
+3 Vehicles come in sizes of `{1, 2, 3}`.
+4 Each car arrives with a requested wait time `{1, 2, 3, 4, 5, .., 10}`.
+5 The parking lot comprises N parking lots with size `{1, 2, 3}`.
+6 The following parking states are allowed:
    - lot = `{1, 2, 3}` holds no cars `{0}`
    - lot = `{1}` holds car = `{1}`
    - lot = `{2}` holds car = `{1, 2}`
    - lot = `{3}` holds car = `{1, 2, 3}` (e.g. a lot of size 3 can hold one car of size 1, 2, or 3)
-# PGOF parks each car in order of arrival until there are no empty lots. After that PGOF can select the first eligible car to park.  PGOF returns to first in logic once slot are available.
-# PGOF unparks cars once the wait time expires.
-# The goal is to maximize the fee for cars parked over a given time period `>> 10` time units. The fee structure is fee = car_size * parking_time (e.g. parking a car of size 3 for 2 time units costs $6)
-# Maintain running sum of fee collected each time a car is parked.
-# Maintain a runing count of the total number of cars parked
-# Design and implement PGOF in C++.
+7 PGOF parks each car in order of arrival until there are no empty lots. After that PGOF can select the first eligible car to park.  PGOF returns to first in logic once slot are available.
+8 PGOF unparks cars once the wait time expires.
+9 The goal is to maximize the fee for cars parked over a given time period `>> 10` time units. The fee structure is fee = car_size * parking_time (e.g. parking a car of size 3 for 2 time units costs $6)
+10 Maintain running sum of fee collected each time a car is parked.
+11 Maintain a runing count of the total number of cars parked
+12 Design and implement PGOF in C++.
 
 ## Key aattributes of a successful solution are:
 
