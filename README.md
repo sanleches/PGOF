@@ -27,12 +27,10 @@ PGOF is an evolving autonoumous parking system for autonoumous vehicles. PGOF mu
 11. Maintain a runing count of the total number of cars parked
 12. Design and implement PGOF in C++.
 
-## Key aattributes of a successful solution are:
+## Key attributes of a successful solution are:
 
 1. Ensuring top level use cases are well defined.
 2. Definition of a system architecture that scales and satisfies best design practices and key quality attributes.
 3. A data model that supports the problem.
 4. Good use of C++ language features to implement PGOF.
 5. A suite of tests that prove PGOF is defect free.
-
-
