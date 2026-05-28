@@ -2,7 +2,7 @@
 
 Design problem for Parking Garage of the Future
 
-![PGOF scene with queue, parking lots, and leaving cars](./pgof_scene.svg)
+![PGOF scene with queue, parking lots, and leaving cars](./PGOF.svg)
 
 You are a world renowned freelance software developer just finsihed your last gig. You are relaxing in your favorite coffee shop, the Dangling Pointer, enjoying the grandeur of the best cappucino ever to grace the hands of a barrista waiting for casting call. In walks Felon Tusk, the notorious giga entrepeneur. Giga scans the shop, immediately recognizes you by your weathered beret, walks over and takes a chair at your table.
 "I need you services, big money. I have this idea for an autonomous parking gargage platform called PGOF, Parking garage of the future." 
