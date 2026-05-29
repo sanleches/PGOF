@@ -39,6 +39,7 @@ PGOF is an evolving autonomous parking system for autonomous vehicles. PGOF must
 5. A suite of tests that prove PGOF is defect free.
 
 ## Recommended Project structure 
+`
 project-root/
 ├── CMakeLists.txt
 ├── cmake/                 # CMake helper modules (Find*.cmake, presets, etc.)
@@ -70,7 +71,7 @@ project-root/
 │   └── CMakeLists.txt
 ├── resources/             # Runtime assets (images, configs, shaders, etc.)
 └── extern/                # External dependencies (git submodules, vendored libs)
-
+`
 ## Garage Capacity Library
 
 A new C++ library is available to compute the garage capacity split by space size.
