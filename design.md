@@ -19,7 +19,7 @@ PGOF is complete when the system supports these top-level use cases:
 
 ```mermaid
 classDiagram
-    class PGOFSystem {
+    class main {
         <<main>>
         float totalFees
         int capacity (N)
@@ -86,11 +86,11 @@ classDiagram
         returns capacity value
     }
 
-    PGOFSystem --> ParkingLotHandler : triggers
-    PGOFSystem --> CarQueue : triggers
-    PGOFSystem --> FeeHandler : triggers
-    PGOFSystem --> TimeHandler : triggers
-    PGOFSystem --> GarageCapacityService : uses
+    main --> ParkingLotHandler : triggers
+    main --> CarQueue : triggers
+    main --> FeeHandler : triggers
+    main --> TimeHandler : triggers
+    main --> GarageCapacityService : uses
     ParkingLotHandler o-- ParkingSpace : contains
     CarQueue o-- Car : contains
     ParkingSpace --> Car : points to
@@ -101,7 +101,7 @@ classDiagram
 
 ```mermaid
 sequenceDiagram
-    participant PGOFSystem as PGOFSystem class / main
+    participant main as main
     participant GarageCapacityService as GarageCapacityService service
     participant CarQueue as CarQueue object
     participant ParkingLotHandler as ParkingLotHandler handler class
@@ -110,28 +110,29 @@ sequenceDiagram
     participant TimeHandler as TimeHandler handler class
     participant FeeHandler as FeeHandler runtime logger
 
-    Note over PGOFSystem,CarQueue: setup
-    PGOFSystem->>GarageCapacityService: request capacity
-    GarageCapacityService-->>PGOFSystem: capacity value
-    Note over PGOFSystem: store N1, N2, N3 in main variables
-    PGOFSystem->>ParkingLotHandler: initialize(N1, N2, N3)
+    Note over main,CarQueue: setup
+    main->>GarageCapacityService: request capacity
+    GarageCapacityService-->>main: capacity value
+    Note over main: store N1, N2, N3 in main variables
+    main->>ParkingLotHandler: initialize(N1, N2, N3)
     ParkingLotHandler->>ParkingSpace: create spaces
     
     loop while PGOF is running
-        PGOFSystem->>CarQueue: enqueue(car)
+        main->>CarQueue: enqueue(car)
         CarQueue->>Car: contains
 
-        PGOFSystem->>ParkingLotHandler: park()
+        main->>ParkingLotHandler: park()
         ParkingLotHandler->>CarQueue: dequeueCar(Mode)
         CarQueue-->>ParkingLotHandler: car
         ParkingLotHandler->>ParkingSpace: check space
         ParkingSpace->>Car: points to
         ParkingLotHandler->>FeeHandler: logs fees to local file
 
-        PGOFSystem->>TimeHandler: tick()
+        main->>TimeHandler: tick()
         TimeHandler->>Car: updates P-cars timeleft
 
-        PGOFSystem->>ParkingLotHandler: unpark(car)
+        main->>ParkingLotHandler: unpark(car)
         ParkingLotHandler->>ParkingSpace: release car
     end
 ```
+# Sequence of events of PGOF System
