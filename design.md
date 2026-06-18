@@ -19,8 +19,8 @@ PGOF is complete when the system supports these top-level use cases:
 
 ```mermaid
 classDiagram
-    class main {
-        <<main>>
+    class pgofApp {
+        <<pgofApp>>
         float totalFees
         int capacity (N)
         int N1, N2, N3
@@ -86,11 +86,11 @@ classDiagram
         returns capacity value
     }
 
-    main --> ParkingLotHandler : triggers
-    main --> CarQueue : triggers
-    main --> FeeHandler : triggers
-    main --> TimeHandler : triggers
-    main --> GarageCapacityService : uses
+    pgofApp --> ParkingLotHandler : triggers
+    pgofApp --> CarQueue : triggers
+    pgofApp --> FeeHandler : triggers
+    pgofApp --> TimeHandler : triggers
+    pgofApp --> GarageCapacityService : uses
     ParkingLotHandler o-- ParkingSpace : contains
     CarQueue o-- Car : contains
     ParkingSpace --> Car : points to
@@ -101,7 +101,7 @@ classDiagram
 
 ```mermaid
 sequenceDiagram
-    participant main as main
+    participant pgofApp as pgofApp
     participant GarageCapacityService as GarageCapacityService service
     participant CarQueue as CarQueue object
     participant ParkingLotHandler as ParkingLotHandler handler class
@@ -110,28 +110,28 @@ sequenceDiagram
     participant TimeHandler as TimeHandler handler class
     participant FeeHandler as FeeHandler runtime logger
 
-    Note over main,CarQueue: setup
-    main->>GarageCapacityService: request capacity
-    GarageCapacityService-->>main: capacity value
-    Note over main: store N1, N2, N3 in main variables
-    main->>ParkingLotHandler: initialize(N1, N2, N3)
+    Note over pgofApp,CarQueue: setup
+    pgofApp->>GarageCapacityService: request capacity
+    GarageCapacityService-->>pgofApp: capacity value
+    Note over pgofApp: store N1, N2, N3 in pgofApp variables
+    pgofApp->>ParkingLotHandler: initialize(N1, N2, N3)
     ParkingLotHandler->>ParkingSpace: create spaces
     
     loop while PGOF is running
-        main->>CarQueue: enqueue(car)
+        pgofApp->>CarQueue: enqueue(car)
         CarQueue->>Car: contains
 
-        main->>ParkingLotHandler: park()
+        pgofApp->>ParkingLotHandler: park()
         ParkingLotHandler->>CarQueue: dequeueCar(Mode)
         CarQueue-->>ParkingLotHandler: car
         ParkingLotHandler->>ParkingSpace: check space
         ParkingSpace->>Car: points to
         ParkingLotHandler->>FeeHandler: logs fees to local file
 
-        main->>TimeHandler: tick()
+        pgofApp->>TimeHandler: tick()
         TimeHandler->>Car: updates P-cars timeleft
 
-        main->>ParkingLotHandler: unpark(car)
+        pgofApp->>ParkingLotHandler: unpark(car)
         ParkingLotHandler->>ParkingSpace: release car
     end
 ```

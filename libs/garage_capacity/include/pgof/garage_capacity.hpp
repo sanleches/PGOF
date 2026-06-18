@@ -10,6 +10,6 @@ struct garage_capacity {
 };
 
 // Splits N spaces into size 1/2/3 buckets as evenly as possible.
-garage_capacity get_garage_capacity(int total_spaces);
+garage_capacity calculate_garage_capacity(int total_spaces);
 
 }  // namespace pgof::garage

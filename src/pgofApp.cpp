@@ -1,13 +1,13 @@
 /**
- * @file main.cpp
- * @brief Source skeleton for main from design.md.
+ * @file pgofApp.cpp
+ * @brief Source skeleton for PgofApp from design.md.
  *
- * This file outlines the setup action where main requests capacity from
+ * This file outlines the setup action where PgofApp requests capacity from
  * GarageCapacityService, stores N1/N2/N3, and later passes those values to
  * ParkingLotHandler. No system loop or setup logic is implemented yet.
  */
 
-#include "pgof/main.hpp"
+#include "pgof/pgofApp.hpp"
 
 namespace pgof {
 
@@ -18,9 +18,11 @@ namespace pgof {
  *
  * TODO: Request capacity value from GarageCapacityService and store N1/N2/N3.
  */
-CapacityValue main::callGarageCapacityService() {
-    // TODO: Call GarageCapacityService and store returned N1, N2, and N3.
-    return {};
+void PgofApp::callGarageCapacityService() {
+    const garage::garage_capacity garageCapacity = garage::calculate_garage_capacity(capacity);
+    N1 = garageCapacity.n1;
+    N2 = garageCapacity.n2;
+    N3 = garageCapacity.n3;
 }
 
 }  // namespace pgof

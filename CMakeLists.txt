@@ -9,7 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_subdirectory(libs)
 
 add_library(pgof_structure
-    src/main.cpp
+    src/pgofApp.cpp
     src/parking_lot_handler.cpp
     src/parking_space.cpp
     src/car_queue.cpp
@@ -23,6 +23,20 @@ add_library(pgof::structure ALIAS pgof_structure)
 target_include_directories(pgof_structure
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+target_link_libraries(pgof_structure
+    PUBLIC
+        pgof::garage_capacity
+)
+
+add_executable(pgof
+    main.cpp
+)
+
+target_link_libraries(pgof
+    PRIVATE
+        pgof::structure
 )
 
 enable_testing()

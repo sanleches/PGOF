@@ -9,7 +9,7 @@ constexpr int min_spaces = 10;
 constexpr int max_spaces = 1000000;
 }
 
-garage_capacity get_garage_capacity(const int total_spaces) {
+garage_capacity calculate_garage_capacity(const int total_spaces) {
     if (total_spaces < min_spaces || total_spaces > max_spaces) {
         throw std::out_of_range("total_spaces must be in [10, 1000000]");
     }

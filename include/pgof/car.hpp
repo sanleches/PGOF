@@ -27,14 +27,6 @@ public:
     int remainingtime{};
     int size{};
     float fee{};
-
-    Car(int reqtime, int size){
-        this->reqtime = reqtime;
-        this->remainingtime = reqtime;
-        this->size = size;
-
-        this->fee = calculateIndividualFee();
-    }
 };
 
 }  // namespace pgof

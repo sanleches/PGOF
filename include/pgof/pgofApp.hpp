@@ -1,22 +1,21 @@
 /**
- * @file main.hpp
- * @brief Declares the main control structure outlined in design.md.
+ * @file pgofApp.hpp
+ * @brief Declares the PGOF application controller outlined in design.md.
  *
- * main represents the primary entry/control point from the UML and sequence
- * diagram. It stores total fees, total capacity, and the N1/N2/N3 capacity
- * values returned by GarageCapacityService.
+ * PgofApp represents the primary PGOF controller from the UML and sequence
+ * diagram. main.cpp is only an executable entry point that uses this library.
  */
 
 #pragma once
 
-#include "pgof/garage_capacity_service.hpp"
+#include "pgof/garage_capacity.hpp"
 
 namespace pgof {
 
 /**
- * @brief Main control structure for the PGOF system.
+ * @brief Application controller for the PGOF system.
  */
-class  {
+class PgofApp {
 public:
     float totalFees{};
     int capacity{};
@@ -26,15 +25,11 @@ public:
 
     /**
      * @brief Purpose: call GarageCapacityService and receive N1, N2, and N3.
-     * @param None.
-     * @return CapacityValue containing the N1, N2, and N3 capacity values.
+     * @return void
      *
      * TODO: Store returned capacity values in N1, N2, and N3.
      */
-
-    do{
-
-    }while();
+    void callGarageCapacityService();
 };
 
 }  // namespace pgof
