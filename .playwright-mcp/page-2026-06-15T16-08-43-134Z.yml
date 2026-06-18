@@ -1,0 +1,579 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e5]:
+      - navigation "Primary Navigation" [ref=e6]:
+        - link "Homepage logo URL - Navigate back to the homepage" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img [ref=e9]
+        - list [ref=e17]:
+          - listitem [ref=e18]:
+            - button [ref=e19] [cursor=pointer]:
+              - generic [ref=e20]: Market Activity
+          - listitem [ref=e21]:
+            - button [ref=e22] [cursor=pointer]:
+              - generic [ref=e23]: Insights
+          - listitem [ref=e24]:
+            - button [ref=e25] [cursor=pointer]:
+              - generic [ref=e26]: Solutions
+          - listitem [ref=e27]:
+            - button [ref=e28] [cursor=pointer]:
+              - generic [ref=e29]: About
+        - generic [ref=e30]:
+          - textbox "Search Button - Click to open the Search Overlay Modal Box" [ref=e31] [cursor=pointer]:
+            - /placeholder: Search for symbols, news or products
+          - link "Account Login - Click to log into your account" [ref=e32] [cursor=pointer]:
+            - /url: /user/login
+            - img [ref=e33]
+    - main [ref=e36]:
+      - link:
+        - /url: javascript:void(0);
+      - article [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e44]:
+            - generic [ref=e47]:
+              - heading "NVDA" [level=3] [ref=e50]
+              - navigation [ref=e51]:
+                - generic [ref=e52]:
+                  - list [ref=e53]:
+                    - listitem [ref=e54]:
+                      - button [ref=e56] [cursor=pointer]:
+                        - generic [ref=e57]: Quotes
+                        - img [ref=e59]
+                    - listitem [ref=e61]:
+                      - button [ref=e63] [cursor=pointer]:
+                        - generic [ref=e64]: News & Analysis
+                        - img [ref=e66]
+                    - listitem [ref=e68]:
+                      - link [ref=e69] [cursor=pointer]:
+                        - /url: /market-activity/stocks/nvda/dividend-history
+                        - generic [ref=e70]: Dividend History
+                    - listitem [ref=e71]:
+                      - link [ref=e72] [cursor=pointer]:
+                        - /url: /market-activity/stocks/nvda/historical
+                        - generic [ref=e73]: Historical Quotes
+                    - listitem [ref=e74]:
+                      - link [ref=e75] [cursor=pointer]:
+                        - /url: /market-activity/stocks/nvda/historical-nocp
+                        - generic [ref=e76]: Historical NOCP
+                    - listitem [ref=e77]:
+                      - link [ref=e78] [cursor=pointer]:
+                        - /url: /market-activity/stocks/nvda/financials
+                        - generic [ref=e79]: Financials
+                  - list [ref=e80]:
+                    - listitem [ref=e81]:
+                      - generic [ref=e82]:
+                        - button [ref=e83] [cursor=pointer]:
+                          - generic [ref=e84]: More
+                          - img [ref=e86]
+                        - listitem [ref=e88]:
+                          - link [ref=e89] [cursor=pointer]:
+                            - /url: /market-activity/stocks/nvda/earnings
+                            - generic [ref=e90]: Earnings
+                        - listitem [ref=e91]:
+                          - link [ref=e92] [cursor=pointer]:
+                            - /url: /market-activity/stocks/nvda/option-chain
+                            - generic [ref=e93]: Option Chain
+                        - listitem [ref=e94]:
+                          - link [ref=e95] [cursor=pointer]:
+                            - /url: /market-activity/stocks/nvda/short-interest
+                            - generic [ref=e96]: Short Interest
+                        - listitem [ref=e97]:
+                          - link [ref=e98] [cursor=pointer]:
+                            - /url: /market-activity/stocks/nvda/institutional-holdings
+                            - generic [ref=e99]: Institutional Holdings
+                        - listitem [ref=e100]:
+                          - link [ref=e101] [cursor=pointer]:
+                            - /url: /market-activity/stocks/nvda/insider-activity
+                            - generic [ref=e102]: Insider Activity
+                        - listitem [ref=e103]:
+                          - link [ref=e104] [cursor=pointer]:
+                            - /url: /market-activity/stocks/nvda/sec-filings
+                            - generic [ref=e105]: SEC Filings
+                - list [ref=e106]:
+                  - listitem [ref=e107]:
+                    - button [ref=e108]:
+                      - img [ref=e109]
+                      - generic [ref=e115]: Watchlist
+            - generic [ref=e121]:
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - generic [ref=e125]: $212.45
+                  - generic [ref=e126]:
+                    - generic [ref=e128]: "+7.26"
+                    - generic [ref=e129]: +3.54%
+                - generic "Data as of" [ref=e130]: Jun 15, 2026 12:08 PM ET
+              - generic [ref=e131]:
+                - generic [ref=e132]:
+                  - generic [ref=e133]:
+                    - link "Nasdaq Listed" [ref=e134] [cursor=pointer]:
+                      - /url: /market-activity/stocks/screener?exchange=nasdaq
+                    - link "Nasdaq 100" [ref=e135] [cursor=pointer]:
+                      - /url: /market-activity/quotes/nasdaq-ndx-index
+                  - generic [ref=e136]:
+                    - generic [ref=e137] [cursor=pointer]:
+                      - img [ref=e139]
+                      - text: Alerts
+                    - img [ref=e143]
+                    - text: "Market:"
+                    - generic [ref=e146]: Open
+                - generic [ref=e147]:
+                  - generic [ref=e148]: NVIDIA Corporation Common Stock (NVDA)
+                  - generic [ref=e149]:
+                    - generic [ref=e150] [cursor=pointer]:
+                      - generic [ref=e151]: "Bid:"
+                      - generic [ref=e152]: $212.44 X 476
+                    - generic [ref=e153] [cursor=pointer]:
+                      - generic [ref=e154]: "Ask:"
+                      - generic [ref=e155]: $212.46 X 110
+                    - generic [ref=e156]:
+                      - generic [ref=e157]: "Volume:"
+                      - generic [ref=e158]: 64,950,759.709641
+                    - generic [ref=e159]:
+                      - generic [ref=e160]: "52 Week Range:"
+                      - generic [ref=e161]:
+                        - generic [ref=e162]: 140.85 - 236.54
+                        - generic [ref=e163]:
+                          - slider: "212.45"
+                    - generic [ref=e164]:
+                      - generic [ref=e165]: "High/Low:"
+                      - generic [ref=e166]:
+                        - text: 208.34 - 212.71
+                        - generic [ref=e167]:
+                          - slider: "212.45"
+          - generic [ref=e169]:
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - paragraph [ref=e177]:
+                  - generic: "Summary :"
+                - link "NVDA" [ref=e180] [cursor=pointer]:
+                  - /url: /market-activity/stocks/nvda/nvda
+                  - generic: NVDA
+              - link "Edit my quotes" [ref=e183] [cursor=pointer]:
+                - /url: /market-activity/recently-viewed-symbols
+                - generic: Edit my quotes
+            - generic [ref=e184]:
+              - generic [ref=e186]:
+                - generic [ref=e187]:
+                  - navigation "Breadcrumb" [ref=e189]:
+                    - heading "Breadcrumb" [level=2] [ref=e190]
+                    - list
+                    - heading "NVIDIA Corporation Common Stock (NVDA)" [level=1] [ref=e192]
+                  - heading [level=1]
+                - generic [ref=e195]:
+                  - generic [ref=e197]:
+                    - button "1D" [ref=e198] [cursor=pointer]
+                    - button "5D" [ref=e199] [cursor=pointer]
+                    - button "1M" [ref=e200] [cursor=pointer]
+                    - button "6M" [ref=e201] [cursor=pointer]
+                    - button "YTD" [ref=e202] [cursor=pointer]
+                    - button "1Y" [ref=e203] [cursor=pointer]
+                    - button "5Y" [ref=e204] [cursor=pointer]
+                    - button "MAX" [ref=e205] [cursor=pointer]
+                  - img [ref=e209]:
+                    - generic [ref=e233]: Volume
+                    - generic [ref=e234]:
+                      - generic [ref=e235]: 3:00 AM
+                      - generic [ref=e236]: 6:00 AM
+                      - generic [ref=e237]: 9:00 AM
+                      - generic [ref=e238]: 12:00 PM
+                      - generic [ref=e239]: 3:00 PM
+                      - generic [ref=e240]: 6:00 PM
+                      - generic [ref=e241]: 9:00 PM
+                    - generic [ref=e242]:
+                      - generic [ref=e243]: $205.00
+                      - generic [ref=e244]: $206.00
+                      - generic [ref=e245]: $207.00
+                      - generic [ref=e246]: $208.00
+                      - generic [ref=e247]: $209.00
+                      - generic [ref=e248]: $210.00
+                      - generic [ref=e249]: $211.00
+                    - generic [ref=e250]:
+                      - generic [ref=e251]: "0"
+                      - generic [ref=e252]: 1M
+                      - generic [ref=e253]: 2M
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - heading "Key Data" [level=2] [ref=e258]:
+                    - generic: Key Data
+                  - table [ref=e262]:
+                    - rowgroup [ref=e263]:
+                      - row
+                      - row [ref=e264]:
+                        - cell [ref=e265]
+                        - cell [ref=e267]
+                        - cell [ref=e269]
+                        - cell [ref=e271]
+                      - row [ref=e273]:
+                        - cell [ref=e274]
+                        - cell [ref=e276]
+                        - cell [ref=e278]
+                        - cell [ref=e280]
+                      - row [ref=e282]:
+                        - cell [ref=e283]
+                        - cell [ref=e285]
+                        - cell [ref=e287]
+                        - cell [ref=e289]
+                      - row [ref=e291]:
+                        - cell [ref=e292]
+                        - cell [ref=e294]
+                        - cell [ref=e296]
+                        - cell [ref=e298]
+                      - row [ref=e300]:
+                        - cell [ref=e301]
+                        - cell [ref=e303]
+                        - cell [ref=e305]
+                        - cell [ref=e307]
+                      - row [ref=e309]:
+                        - cell [ref=e310]
+                        - cell [ref=e312]
+                        - cell [ref=e314]
+                        - cell [ref=e316]
+                      - row [ref=e318]:
+                        - cell [ref=e319]
+                        - cell [ref=e321]
+                        - cell [ref=e323]
+                        - cell [ref=e325]
+                      - row [ref=e327]:
+                        - cell [ref=e328]
+                        - cell [ref=e330]
+                        - cell [ref=e332]
+                        - cell [ref=e334]
+                - generic [ref=e337]:
+                  - generic [ref=e339]: "Data Disclaimer: The Nasdaq Indices and the Major Indices are delayed at least 1 minute."
+                  - generic [ref=e340]:
+                    - heading "Bid Price and Ask Price" [level=3] [ref=e341]
+                    - paragraph [ref=e343]:
+                      - text: The
+                      - link "bid" [ref=e344] [cursor=pointer]:
+                        - /url: https://www.nasdaq.com/glossary/b/bid
+                      - text: "&"
+                      - link "ask" [ref=e345] [cursor=pointer]:
+                        - /url: https://www.nasdaq.com/glossary/a/ask
+                      - text: refers to the price that an investor is willing to buy or sell a stock. The bid is the highest amount that a buyer is currently willing to pay, whereas the ask is the lowest amount that a seller is currently willing to sell. The numbers next to the bid/ask are the “
+                      - link "size" [ref=e346] [cursor=pointer]:
+                        - /url: https://www.nasdaq.com/glossary/s/size
+                      - text: ”. The bid size displays the total amount of desired shares
+                      - button "... Read More." [ref=e347] [cursor=pointer]
+                    - table [ref=e348]:
+                      - rowgroup [ref=e349]:
+                        - row "Label Value" [ref=e350]:
+                          - columnheader "Label" [ref=e351]
+                          - columnheader "Value" [ref=e352]
+                      - rowgroup [ref=e353]:
+                        - row [ref=e354]:
+                          - cell [ref=e355]
+                          - cell [ref=e356]
+                    - generic [ref=e357]:
+                      - img [ref=e358]
+                      - text: Powered by
+                      - link "Nasdaq Basic" [ref=e359] [cursor=pointer]:
+                        - /url: https://www.nasdaq.com/solutions/data/equities/nasdaq-basic?utm_medium=Nasdaqweb&utm_source=Website
+                        - text: Nasdaq Basic
+                        - img [ref=e360]
+                - generic [ref=e362]:
+                  - generic:
+                    - heading [level=2]
+                  - table [ref=e366]:
+                    - rowgroup [ref=e367]:
+                      - row [ref=e368]:
+                        - columnheader [ref=e369]
+                      - row [ref=e371]:
+                        - cell [ref=e372]
+                      - row [ref=e374]:
+                        - cell [ref=e375]
+                      - row [ref=e377]:
+                        - cell [ref=e378]
+                      - row [ref=e380]:
+                        - cell [ref=e381]
+                      - row [ref=e383]:
+                        - cell [ref=e384]
+                      - row [ref=e386]:
+                        - cell [ref=e387]
+                      - row [ref=e389]:
+                        - cell [ref=e390]
+                      - row [ref=e392]:
+                        - cell [ref=e393]
+                      - row [ref=e395]:
+                        - cell [ref=e396]
+                      - row [ref=e398]:
+                        - cell [ref=e399]
+                      - row [ref=e401]:
+                        - cell [ref=e402]
+                      - row [ref=e404]:
+                        - cell [ref=e405]
+                      - row [ref=e407]:
+                        - cell [ref=e408]
+                      - row [ref=e410]:
+                        - cell [ref=e411]
+                      - row [ref=e413]:
+                        - cell [ref=e414]
+                      - row [ref=e416]:
+                        - cell [ref=e417]
+              - generic [ref=e419]:
+                - generic [ref=e421]:
+                  - heading "Report an Issue" [level=4] [ref=e422]
+                  - paragraph [ref=e424]:
+                    - text: If you see an issue with the data or information displayed on this page, please report it using the
+                    - strong [ref=e425]: Contact Us
+                    - text: button below.
+                  - heading [level=4]
+                  - link "Contact Us" [ref=e427] [cursor=pointer]:
+                    - /url: https://nd.nasdaq.com/CORLPCorrections-or-Updates.html
+                    - generic [ref=e428]: Contact Us
+                - generic [ref=e431]:
+                  - heading [level=3]
+                  - paragraph [ref=e433]:
+                    - text: For additional information, refer to our
+                    - link "FAQs" [ref=e434] [cursor=pointer]:
+                      - /url: https://www.nasdaq.com/market-activity#faq
+                    - text: .
+            - generic [ref=e438]:
+              - generic [ref=e440]:
+                - search [ref=e442]:
+                  - generic [ref=e443]:
+                    - generic [ref=e444]:
+                      - heading "Symbol Search" [level=3] [ref=e446]
+                      - link "Screener ->" [ref=e447] [cursor=pointer]:
+                        - /url: /market-activity/indexes/screener
+                    - generic [ref=e448]:
+                      - button "Click to search"
+                      - textbox "Search for a Symbol" [ref=e449]
+                - alert [ref=e450]
+              - generic [ref=e452]:
+                - link:
+                  - /url: "#cf=d4752043-78fd-4fa2-b24e-69ea7cd771b6&t=inline&s=inline-container"
+                - generic [ref=e453]:
+                  - heading "Explore Nasdaq's Premier Data Solutions" [level=3] [ref=e455]
+                  - article [ref=e463]:
+                    - generic [ref=e464]: "undefined:"
+          - generic [ref=e468]:
+            - generic [ref=e471]:
+              - heading "Latest News" [level=3] [ref=e473]
+              - generic [ref=e474]:
+                - table [ref=e477]:
+                  - rowgroup [ref=e478]:
+                    - row [ref=e479]:
+                      - columnheader [ref=e480]
+                    - row [ref=e482]:
+                      - cell [ref=e483]
+                    - row [ref=e486]:
+                      - cell [ref=e487]
+                    - row [ref=e490]:
+                      - cell [ref=e491]
+                    - row [ref=e494]:
+                      - cell [ref=e495]
+                    - row [ref=e498]:
+                      - cell [ref=e499]
+                    - row [ref=e502]:
+                      - cell [ref=e503]
+                    - row [ref=e506]:
+                      - cell [ref=e507]
+                    - row [ref=e510]:
+                      - cell [ref=e511]
+                    - row [ref=e514]:
+                      - cell [ref=e515]
+                    - row [ref=e518]:
+                      - cell [ref=e519]
+                - list [ref=e522]:
+                  - listitem [ref=e523]:
+                    - generic [ref=e524]:
+                      - paragraph
+                      - generic [ref=e525]: •
+                - generic [ref=e530]:
+                  - button [ref=e531] [cursor=pointer]
+                  - generic [ref=e533]: ...
+            - complementary [ref=e534]
+          - generic [ref=e537]:
+            - generic [ref=e541]:
+              - generic [ref=e543]:
+                - heading "Trending Stocks" [level=3] [ref=e545]
+                - table [ref=e548]:
+                  - rowgroup [ref=e549]:
+                    - row [ref=e550]:
+                      - cell [ref=e551]
+                      - cell [ref=e553]
+                      - cell [ref=e555]
+                      - cell [ref=e557]
+                - paragraph
+              - generic [ref=e560]:
+                - heading "Trending ETFs" [level=3] [ref=e562]
+                - table [ref=e565]:
+                  - rowgroup [ref=e566]:
+                    - row [ref=e567]:
+                      - cell [ref=e568]
+                      - cell [ref=e570]
+                      - cell [ref=e572]
+                      - cell [ref=e574]
+                - paragraph
+              - generic [ref=e577]:
+                - heading "Trending Indexes" [level=3] [ref=e579]
+                - table [ref=e582]:
+                  - rowgroup [ref=e583]:
+                    - row [ref=e584]:
+                      - cell [ref=e585]
+                      - cell [ref=e587]
+                      - cell [ref=e589]
+                      - cell [ref=e591]
+                - paragraph
+              - generic [ref=e594]:
+                - generic [ref=e596]: "Data Disclaimer: The Nasdaq Indices and the Major Indices are delayed at least 1 minute."
+                - generic [ref=e597]:
+                  - heading [level=3]
+                  - generic [ref=e598]:
+                    - list [ref=e599]:
+                      - listitem [ref=e600]:
+                        - strong [ref=e601]: Real-time Data is provided using Nasdaq Last Sale Data
+                    - paragraph [ref=e602]
+                    - paragraph [ref=e603]:
+                      - text: Data provided by Nasdaq Data Link, a premier source for financial, economic and alternative datasets. Data Link's cloud-based technology platform allows you to search, discover and access data and analytics for seamless integration via cloud APIs. Register for your free account today at
+                      - link "data.nasdaq.com" [ref=e604] [cursor=pointer]:
+                        - /url: https://data.nasdaq.com/sign-up?utm_medium=Nasdaqweb&utm_source=Referral
+                      - text: .
+                  - generic [ref=e605]:
+                    - img "Nasdaq link logo" [ref=e606]
+                    - link "Powered by Nasdaq Data Link" [ref=e607] [cursor=pointer]:
+                      - /url: https://data.nasdaq.com/
+                    - img "Information" [ref=e609]
+            - complementary [ref=e610]
+    - contentinfo [ref=e611]:
+      - contentinfo "footer" [ref=e612]:
+        - generic [ref=e613]:
+          - group "TradeTalks" [ref=e615]:
+            - generic [ref=e616]: TradeTalks
+            - generic [ref=e617]:
+              - generic [ref=e618]: Sign up for the TradeTalks newsletter to receive your weekly dose of trading news, trends and education. Delivered Wednesdays.
+              - paragraph [ref=e620]: All Text Fields Are Required
+              - text: 
+          - generic [ref=e621]:
+            - list [ref=e622]:
+              - listitem [ref=e623]:
+                - link "Investor Relations" [ref=e624] [cursor=pointer]:
+                  - /url: http://ir.nasdaq.com/
+              - listitem [ref=e625]:
+                - link "Contact" [ref=e626] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/contact-us
+              - listitem [ref=e627]:
+                - link "Careers" [ref=e628] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/about/careers
+              - listitem [ref=e629]:
+                - link "Advertise" [ref=e630] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/advertising
+              - listitem [ref=e631]:
+                - link "Nasdaq MarketSIte" [ref=e632] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/marketsite
+              - listitem [ref=e633]:
+                - link "Trust Center" [ref=e634] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/trust-center
+              - listitem [ref=e635]:
+                - link "Newsletters" [ref=e636] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/newsletters
+              - listitem [ref=e637]:
+                - link "Accessibility" [ref=e638] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/nasdaq-accessibility-commitment
+            - list [ref=e639]:
+              - listitem [ref=e640]:
+                - link "Privacy Policy" [ref=e641] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/privacy-statement
+              - listitem [ref=e642]:
+                - link "Cookies" [ref=e643] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/cookie-statement
+              - listitem [ref=e644]:
+                - link "Legal" [ref=e645] [cursor=pointer]:
+                  - /url: https://www.nasdaq.com/legal
+              - listitem [ref=e646]:
+                - link "Do Not Sell or Share My Personal Information" [ref=e647] [cursor=pointer]:
+                  - /url: ""
+          - list [ref=e648]:
+            - listitem [ref=e649]:
+              - link "Facebook" [ref=e650] [cursor=pointer]:
+                - /url: https://www.facebook.com/Nasdaq/
+                - text: 
+            - listitem [ref=e651]:
+              - link "X" [ref=e652] [cursor=pointer]:
+                - /url: https://x.com/Nasdaq
+            - listitem [ref=e653]:
+              - link "LinkedIn" [ref=e654] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/nasdaq/
+                - text: 
+            - listitem [ref=e655]:
+              - link "Instagram" [ref=e656] [cursor=pointer]:
+                - /url: https://www.instagram.com/nasdaq
+                - text: 
+            - listitem [ref=e657]:
+              - link "Pinterest" [ref=e658] [cursor=pointer]:
+                - /url: https://www.pinterest.com/nasdaq/
+                - text: 
+          - link "Nasdaq Logo" [ref=e659] [cursor=pointer]:
+            - /url: /
+            - img [ref=e660]
+          - paragraph [ref=e668]: © 2026, Nasdaq, Inc. All Rights Reserved.
+    - generic:
+      - button "Open Watchlist" [ref=e669] [cursor=pointer]:
+        - generic [ref=e670]: My Quotes
+        - generic [ref=e671]: 
+      - generic:
+        - text: 
+        - generic:
+          - generic:
+            - list:
+              - tab [selected]: My Quotes
+              - tab: My European Quotes
+              - tab: Watchlist
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - button [ref=e672] [cursor=pointer]: Add/Edit Symbols
+                    - link [ref=e673] [cursor=pointer]:
+                      - /url: /market-activity/recently-viewed-symbols
+                      - text: View as Table
+                  - text: 
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - button [disabled]:
+                            - generic:  
+                        - generic:
+                          - button [disabled]:
+                            - generic:  
+                      - generic:
+                        - list:
+                          - listitem:
+                            - text: 
+                            - link:
+                              - /url: /market-activity/stocks/nvda
+                              - text: NVDA
+                              - paragraph: $212.46
+                              - paragraph: +7.27 +3.54% 
+                            - generic: 
+                          - text:   
+            - text:                
+    - generic:
+      - generic:
+        - button: 
+        - generic:
+          - text: Add a symbol to your watchlist
+          - generic:
+            - text: 
+            - textbox:
+              - /placeholder: Enter Symbol
+        - generic:
+          - generic: Most Active
+          - list
+          - text: 
+    - alert
+  - text:  ×
+  - region "Cookie banner" [active] [ref=e675]:
+    - dialog "Privacy" [ref=e676]:
+      - generic [ref=e678]:
+        - generic [ref=e681]:
+          - text: By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
+          - link "More information about your privacy, opens in a new tab" [ref=e682] [cursor=pointer]:
+            - /url: https://www.nasdaq.com/cookie-statement
+            - text: Cookie Policy
+        - generic [ref=e684]:
+          - button "Cookies Settings, Opens the preference center dialog" [ref=e685] [cursor=pointer]: Cookies Settings
+          - button "Accept All Cookies" [ref=e686] [cursor=pointer]
+      - button "Close" [ref=e688] [cursor=pointer]
+  - status [ref=e689]
