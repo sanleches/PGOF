@@ -163,7 +163,16 @@ void test_time_handler_advances_time() {
 }
 
 void test_time_expiry_unparks_vehicle() {
-    expect(false, "time expiry should unpark vehicles once TimeHandler is connected to parked cars");
+    pgof::PgofApp app{};
+    app.parkingLot.initialize(1, 0, 0);
+    app.enqueueCar(makeCar(1, 1));
+
+    app.park();
+    const std::vector<pgof::Car> expiredCars = app.tick();
+
+    expect(app.timeHandler.time == 1, "app tick should advance TimeHandler");
+    expect(expiredCars.size() == 1, "time expiry should unpark vehicles once TimeHandler is connected to parked cars");
+    expect(app.parkingLot.spaces.front().occupancy == 0, "expired vehicle should release its parking space");
 }
 
 void test_fee_is_car_size_times_requested_parking_time() {
@@ -187,15 +196,43 @@ void test_total_fees_start_at_zero() {
 }
 
 void test_running_total_fees_are_maintained() {
-    expect(false, "system should expose/update running total fees after each successful park");
+    pgof::PgofApp app{};
+    app.parkingLot.initialize(1, 1, 0);
+
+    app.enqueueCar(makeCar(1, 4));
+    app.enqueueCar(makeCar(2, 5));
+
+    app.park();
+    expect(app.totalFees == 4.0F, "system should expose/update running total fees after first successful park");
+
+    app.park();
+    expect(app.totalFees == 14.0F, "system should expose/update running total fees after each successful park");
 }
 
 void test_successfully_parked_vehicle_count_is_maintained() {
-    expect(false, "system should expose/update total number of successfully parked vehicles");
+    pgof::PgofApp app{};
+    app.parkingLot.initialize(2, 0, 0);
+
+    app.enqueueCar(makeCar(1, 4));
+    app.enqueueCar(makeCar(1, 5));
+
+    app.park();
+    app.park();
+
+    expect(app.totalParkedVehicles == 2, "system should expose/update total number of successfully parked vehicles");
 }
 
 void test_long_running_policy_prefers_fee_maximizing_decisions() {
-    expect(false, "parking policy should be testable against long-running fee maximization scenarios");
+    pgof::PgofApp app{};
+    app.parkingLot.initialize(1, 0, 0);
+
+    app.enqueueCar(makeCar(3, 10));
+    app.enqueueCar(makeCar(1, 10));
+
+    const pgof::Car parked = app.park();
+
+    expect(parked.size == 1, "parking policy should select first eligible car when head cannot fit");
+    expect(app.totalFees == 10.0F, "parking policy should collect fees from eligible long-running decisions");
 }
 
 }  // namespace

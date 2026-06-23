@@ -8,7 +8,15 @@
 
 #pragma once
 
+#include <queue>
+#include <vector>
+
+#include "pgof/car.hpp"
+#include "pgof/car_queue.hpp"
+#include "pgof/fee_handler.hpp"
 #include "pgof/garage_capacity.hpp"
+#include "pgof/parking_lot_handler.hpp"
+#include "pgof/time_handler.hpp"
 
 namespace pgof {
 
@@ -17,19 +25,53 @@ namespace pgof {
  */
 class PgofApp {
 public:
+    PgofApp();
+
     float totalFees{};
+    int totalParkedVehicles{};
     int capacity{};
     int N1{};
     int N2{};
     int N3{};
 
+    ParkingLotHandler parkingLot;
+    std::queue<Car> waitingCars;
+    CarQueue carQueue;
+    FeeHandler feeHandler;
+    TimeHandler timeHandler;
+
     /**
      * @brief Purpose: call GarageCapacityService and receive N1, N2, and N3.
      * @return void
      *
-     * TODO: Store returned capacity values in N1, N2, and N3.
+     * Stores returned capacity values in N1, N2, and N3.
      */
     void callGarageCapacityService();
+
+    /**
+     * @brief Discover capacity and initialize all runtime services.
+     */
+    void initialize();
+
+    /**
+     * @brief Accept a car into the waiting line.
+     */
+    void enqueueCar(Car car);
+
+    /**
+     * @brief Park the next car selected by the PGOF parking policy.
+     */
+    Car park();
+
+    /**
+     * @brief Advance time and unpark expired vehicles.
+     */
+    std::vector<Car> tick();
+
+    /**
+     * @brief Explicitly release a car from the parking lot.
+     */
+    void unpark(Car car);
 };
 
 }  // namespace pgof

@@ -38,3 +38,6 @@
 # Generated folders
 build/
 CMakeFiles
+
+# Runtime logs
+pgof_fees.log
