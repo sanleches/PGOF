@@ -15,6 +15,9 @@ namespace pgof {
  */
 class FeeHandler {
 public:
+    float totalfees{};
+
+
     /**
      * @brief Purpose: log fees to a local file.
      * @param None.
@@ -31,9 +34,13 @@ public:
      *
      * TODO: Define whether this reads from memory, a file, or both.
      */
-    float CalculateTotalFeesOnExit();
+    float getTotalFees() const;
 
-    float calculateIndividualFee();
+    void addFee(float fee);
+
+    float calculateIndividualFee(int carSize, int requestedTime);
+
+    void CalculateIndividualFee(int carSize, int requestedTime, bool addToTotal);
 };
 
 }  // namespace pgof

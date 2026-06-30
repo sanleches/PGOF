@@ -41,7 +41,7 @@ void PgofApp::initialize() {
     carQueue.queue = &waitingCars; // Re-initialize the car queue with the waiting cars vector
     totalFees = 0.0F;
     totalParkedVehicles = 0;
-    feeHandler.fees.clear();
+    feeHandler.totalfees = 0.0F;
     timeHandler.time = 0;
 }
 
@@ -83,20 +83,22 @@ void PgofApp::submitCar(int size, int requestedTime) {
 }
 
 Car PgofApp::park() {
-    Car parkedCar = parkingLot.park(carQueue);
+    Car parkedCar = parkingLot.park();
     if (parkedCar.size <= 0) {
         return parkedCar;
     }
 
-    feeHandler.recordFee(parkedCar);
-    totalFees = feeHandler.CalculateTotalFeesOnExit();
+    feeHandler.CalculateIndividualFee(parkedCar.size, parkedCar.reqtime, true);
+    totalFees = feeHandler.getTotalFees();
     ++totalParkedVehicles;
     return parkedCar;
 }
 
 std::vector<Car> PgofApp::tick() {
     timeHandler.tick();
-    return parkingLot.tickAndUnparkExpired();
+    std::vector<Car> unparked;
+    // TODO: Implement tick and unpark expired logic
+    return unparked;
 }
 
 void PgofApp::unpark(Car car) {

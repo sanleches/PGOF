@@ -8,8 +8,6 @@
 
 #include "pgof/fee_handler.hpp"
 
-namespace pgof {
-
 /**
  * @brief Purpose: log fees to a local file.
  * @param None.
@@ -21,22 +19,20 @@ void FeeHandler::logFeesToFile() {
     // TODO: Implement fee logging to a local file.
 }
 
-/**
- * @brief Purpose: calculate total fees when the system exits.
- * @param None.
- * @return Total fees as a floating-point value.
- *
- * TODO: Implement total fee calculation on exit.
- */
-float FeeHandler::CalculateTotalFeesOnExit() {
-    // TODO: Implement total fee calculation.
-    return 0.0F;
+float FeeHandler::getTotalFees() const {
+    return totalfees;
 }
 
-float FeeHandler::calculateIndividualFee() {
-    //TODO: Implement individual fee calculation based on car size and requested time.
-    
-    return 0.0F;
+void FeeHandler::addFee(float fee) {
+    totalfees += fee;
 }
 
-}  // namespace pgof
+float FeeHandler::calculateIndividualFee(int carSize, int requestedTime) {
+    return carSize * requestedTime * 1.0F;
+}
+
+void FeeHandler::CalculateIndividualFee(int carSize, int requestedTime, bool addToTotal) {
+    if (addToTotal) {
+        addFee(calculateIndividualFee(carSize, requestedTime));
+    }
+}
