@@ -19,8 +19,22 @@ namespace pgof {
  * TODO: Implement the queue selection behavior after Mode is fully defined.
  */
 Car CarQueue::dequeueCar(bool Mode) {
-    // TODO: Implement dequeue logic for the requested mode.
-    return {};
+    if (queue == nullptr || queue->empty()) {
+        return {};
+    }
+
+    if (Mode == false) {
+        // Mode 0: Arrival-order (FIFO) - return first car in queue
+        Car car = queue->front();
+        queue->pop();
+        return car;
+    } else {
+        // Mode 1: Find first eligible car (for fee maximization strategy)
+        // TODO: Implement logic to find compatible car when next can't park
+        Car car = queue->front();
+        queue->pop();
+        return car;
+    }
 }
 
 /**
@@ -31,7 +45,9 @@ Car CarQueue::dequeueCar(bool Mode) {
  * TODO: Implement enqueue behavior and head/tail updates.
  */
 void CarQueue::enqueue(Car car) {
-    // TODO: Implement queue insertion.
+    if (queue != nullptr) {
+        queue->push(car);
+    }
 }
 
 }  // namespace pgof

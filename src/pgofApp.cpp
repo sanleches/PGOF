@@ -13,9 +13,9 @@
 
 namespace pgof {
 
-PgofApp::PgofApp() {
-    carQueue.queue = &waitingCars; // Initialize the car queue with the waiting cars vector
-}
+//PgofApp::PgofApp() {
+//    carQueue.queue = &waitingCars; // Initialize the car queue with the waiting cars vector
+//}
 
 PgofApp::PgofApp(int totalSpaces) : PgofApp() {
     initialize(totalSpaces);

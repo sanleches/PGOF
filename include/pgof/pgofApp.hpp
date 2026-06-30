@@ -43,7 +43,7 @@ public:
     PgofApp();
     explicit PgofApp(int totalSpaces);
 
-    float totalFees{};
+    float totalFees{}; //remove?
     int totalParkedVehicles{};
     int capacity{};
     int N1{};
@@ -67,12 +67,12 @@ public:
     /**
      * @brief Discover capacity and initialize all runtime services.
      */
-    void initialize();
+    void initialize(); // make private
 
     /**
      * @brief Set total capacity and initialize all runtime services.
      */
-    void initialize(int totalSpaces);
+    void initialize(int totalSpaces); // make private
 
     /**
      * @brief Read-only accessors for startup capacity values.
