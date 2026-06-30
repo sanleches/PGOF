@@ -11,15 +11,17 @@
 namespace pgof {
 
 /**
- * @brief Purpose: initialize the lot from the N1, N2, and N3 capacity values.
+ * @brief Purpose: construct the lot from the N1, N2, and N3 capacity values.
  * @param N1 Number of size-1 parking spaces.
  * @param N2 Number of size-2 parking spaces.
  * @param N3 Number of size-3 parking spaces.
- * @return Nothing.
  *
  * TODO: Create ParkingSpace objects according to N1, N2, and N3.
  */
-void ParkingLotHandler::initialize(int N1, int N2, int N3) {
+ParkingLotHandler::ParkingLotHandler(int N1, int N2, int N3) {
+    n1 = N1;
+    n2 = N2;
+    n3 = N3;
     // TODO: Implement ParkingSpace creation from N1, N2, and N3.
 }
 

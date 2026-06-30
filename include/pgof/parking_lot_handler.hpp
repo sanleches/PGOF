@@ -21,18 +21,24 @@ namespace pgof {
  */
 class ParkingLotHandler {
 public:
+    int n1{};
+    int n2{};
+    int n3{};
     std::vector<ParkingSpace> spaces;
 
     /**
-     * @brief Purpose: initialize the lot from the N1, N2, and N3 capacity values.
+     * @brief Default constructor for an empty parking-lot handler.
+     */
+    ParkingLotHandler() = default;
+
+    /**
+     * @brief Purpose: construct the lot from the N1, N2, and N3 capacity values.
      * @param N1 Number of size-1 parking spaces.
      * @param N2 Number of size-2 parking spaces.
      * @param N3 Number of size-3 parking spaces.
-     * @return Nothing.
-     *
      * TODO: Define exactly how spaces are created from each capacity value.
      */
-    void initialize(int N1, int N2, int N3);
+    ParkingLotHandler(int N1, int N2, int N3);
 
     /**
      * @brief Purpose: park a car by triggering dequeueCar behavior.

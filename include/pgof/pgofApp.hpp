@@ -9,6 +9,7 @@
 #pragma once
 
 #include <queue>
+#include <string>
 #include <vector>
 
 #include "pgof/car.hpp"
@@ -21,11 +22,26 @@
 namespace pgof {
 
 /**
+ * @brief Snapshot of application metrics for end-of-run reporting.
+ */
+struct PgofReport {
+    int capacity{};
+    int n1{};
+    int n2{};
+    int n3{};
+    int totalParkedVehicles{};
+    float totalFees{};
+    int currentTime{};
+    int waitingCars{};
+};
+
+/**
  * @brief Application controller for the PGOF system.
  */
 class PgofApp {
 public:
     PgofApp();
+    explicit PgofApp(int totalSpaces);
 
     float totalFees{};
     int totalParkedVehicles{};
@@ -54,9 +70,27 @@ public:
     void initialize();
 
     /**
+     * @brief Set total capacity and initialize all runtime services.
+     */
+    void initialize(int totalSpaces);
+
+    /**
+     * @brief Read-only accessors for startup capacity values.
+     */
+    int getCapacity() const;
+    int getN1() const;
+    int getN2() const;
+    int getN3() const;
+
+    /**
      * @brief Accept a car into the waiting line.
      */
     void enqueueCar(Car car);
+
+    /**
+     * @brief Convenience method to submit a car without manually building a Car object.
+     */
+    void submitCar(int size, int requestedTime);
 
     /**
      * @brief Park the next car selected by the PGOF parking policy.
@@ -72,6 +106,16 @@ public:
      * @brief Explicitly release a car from the parking lot.
      */
     void unpark(Car car);
+
+    /**
+     * @brief Produce a metrics snapshot for final reporting.
+     */
+    PgofReport getReport() const;
+
+    /**
+     * @brief Produce a user-facing text report.
+     */
+    std::string getReportText() const;
 };
 
 }  // namespace pgof

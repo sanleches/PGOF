@@ -32,19 +32,15 @@ pgof::Car makeCar(int size, int requestedTime) {
 
 void test_startup_discovers_and_splits_capacity() {
     pgof::PgofApp app{};
-    app.capacity = 10;
+    app.initialize(10);
 
-    app.callGarageCapacityService();
-
-    expect(app.N1 == 4, "startup should discover size-1 capacity for N=10");
-    expect(app.N2 == 3, "startup should discover size-2 capacity for N=10");
-    expect(app.N3 == 3, "startup should discover size-3 capacity for N=10");
+    expect(app.getN1() == 4, "startup should discover size-1 capacity for N=10");
+    expect(app.getN2() == 3, "startup should discover size-2 capacity for N=10");
+    expect(app.getN3() == 3, "startup should discover size-3 capacity for N=10");
 }
 
 void test_parking_lot_initializes_spaces_from_capacity_split() {
-    pgof::ParkingLotHandler lot{};
-
-    lot.initialize(2, 3, 4);
+    pgof::ParkingLotHandler lot{2, 3, 4};
 
     int size1Spaces = 0;
     int size2Spaces = 0;
@@ -164,7 +160,7 @@ void test_time_handler_advances_time() {
 
 void test_time_expiry_unparks_vehicle() {
     pgof::PgofApp app{};
-    app.parkingLot.initialize(1, 0, 0);
+    app.parkingLot = pgof::ParkingLotHandler(1, 0, 0);
     app.enqueueCar(makeCar(1, 1));
 
     app.park();
@@ -197,7 +193,7 @@ void test_total_fees_start_at_zero() {
 
 void test_running_total_fees_are_maintained() {
     pgof::PgofApp app{};
-    app.parkingLot.initialize(1, 1, 0);
+    app.parkingLot = pgof::ParkingLotHandler(1, 1, 0);
 
     app.enqueueCar(makeCar(1, 4));
     app.enqueueCar(makeCar(2, 5));
@@ -211,7 +207,7 @@ void test_running_total_fees_are_maintained() {
 
 void test_successfully_parked_vehicle_count_is_maintained() {
     pgof::PgofApp app{};
-    app.parkingLot.initialize(2, 0, 0);
+    app.parkingLot = pgof::ParkingLotHandler(2, 0, 0);
 
     app.enqueueCar(makeCar(1, 4));
     app.enqueueCar(makeCar(1, 5));
@@ -224,7 +220,7 @@ void test_successfully_parked_vehicle_count_is_maintained() {
 
 void test_long_running_policy_prefers_fee_maximizing_decisions() {
     pgof::PgofApp app{};
-    app.parkingLot.initialize(1, 0, 0);
+    app.parkingLot = pgof::ParkingLotHandler(1, 0, 0);
 
     app.enqueueCar(makeCar(3, 10));
     app.enqueueCar(makeCar(1, 10));
