@@ -10,6 +10,28 @@
 
 namespace pgof {
 
+namespace {
+
+bool hasParkedCar(const ParkingSpace& space, const Car& car) {
+    if (space.cars == nullptr) {
+        return false;
+    }
+
+    for (const Car& parkedCar : *space.cars) {
+        if (parkedCar.size == car.size && parkedCar.reqtime == car.reqtime) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool isEmptyCompatibleSpace(const ParkingSpace& space, const Car& car) {
+    return space.cars != nullptr && space.cars->empty() && car.size > 0 && car.size <= space.capacity;
+}
+
+}  // namespace
+
 /**
  * @brief Purpose: construct the lot from the N1, N2, and N3 capacity values.
  * @param N1 Number of size-1 parking spaces.
@@ -39,6 +61,28 @@ ParkingLotHandler::ParkingLotHandler(int N1, int N2, int N3) {
     addSpaces(N3, 3);
 }
 
+int ParkingLotHandler::getLargestAvailableSpaceCapacity() const {
+    int largestCapacity = 0;
+
+    for (const ParkingSpace& space : spaces) {
+        if (space.cars != nullptr && space.cars->empty() && space.capacity > largestCapacity) {
+            largestCapacity = space.capacity;
+        }
+    }
+
+    return largestCapacity;
+}
+
+bool ParkingLotHandler::canPark(const Car& car) const {
+    for (const ParkingSpace& space : spaces) {
+        if (isEmptyCompatibleSpace(space, car)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 /**
  * @brief Purpose: park a car by triggering dequeueCar behavior.
  * @param None.
@@ -47,8 +91,50 @@ ParkingLotHandler::ParkingLotHandler(int N1, int N2, int N3) {
  * TODO: Dequeue a car, check spaces, point a space to the car, and log fees.
  */
 Car ParkingLotHandler::park() {
-    // TODO: Implement parking flow from the sequence diagram.
     return {};
+}
+
+Car ParkingLotHandler::park(Car car) {
+    for (ParkingSpace& space : spaces) {
+        if (!isEmptyCompatibleSpace(space, car)) {
+            continue;
+        }
+
+        space.insert(car);
+        if (space.cars != nullptr && !space.cars->empty()) {
+            return space.cars->front();
+        }
+
+        return {};
+    }
+
+    return {};
+}
+
+std::vector<Car> ParkingLotHandler::tickParkedCars() {
+    std::vector<Car> expiredCars;
+
+    for (ParkingSpace& space : spaces) {
+        if (space.cars == nullptr) {
+            space.updateOccupancy();
+            continue;
+        }
+
+        for (auto parkedCar = space.cars->begin(); parkedCar != space.cars->end();) {
+            --parkedCar->remainingtime;
+
+            if (parkedCar->remainingtime <= 0) {
+                expiredCars.push_back(*parkedCar);
+                parkedCar = space.cars->erase(parkedCar);
+            } else {
+                ++parkedCar;
+            }
+        }
+
+        space.updateOccupancy();
+    }
+
+    return expiredCars;
 }
 
 /**
@@ -59,7 +145,12 @@ Car ParkingLotHandler::park() {
  * TODO: Release the car from the appropriate ParkingSpace.
  */
 void ParkingLotHandler::unpark(Car car) {
-    // TODO: Implement car release from managed spaces.
+    for (ParkingSpace& space : spaces) {
+        if (hasParkedCar(space, car)) {
+            space.remove(car);
+            return;
+        }
+    }
 }
 
 }  // namespace pgof

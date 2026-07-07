@@ -8,6 +8,8 @@
 
 #include "pgof/parking_space.hpp"
 
+#include <utility>
+
 namespace pgof {
 
 namespace {
@@ -17,6 +19,56 @@ bool sameCarRequest(const Car& left, const Car& right) {
 }
 
 }  // namespace
+
+ParkingSpace::ParkingSpace() : cars(&parkedCars) {}
+
+ParkingSpace::ParkingSpace(const ParkingSpace& other)
+    : capacity(other.capacity),
+      isfull(other.isfull),
+      occupancy(other.occupancy),
+      cars(&parkedCars),
+      parkedCars(other.cars != nullptr ? *other.cars : std::vector<Car>{}) {
+    updateOccupancy();
+}
+
+ParkingSpace& ParkingSpace::operator=(const ParkingSpace& other) {
+    if (this == &other) {
+        return *this;
+    }
+
+    capacity = other.capacity;
+    isfull = other.isfull;
+    occupancy = other.occupancy;
+    parkedCars = other.cars != nullptr ? *other.cars : std::vector<Car>{};
+    cars = &parkedCars;
+    updateOccupancy();
+    return *this;
+}
+
+ParkingSpace::ParkingSpace(ParkingSpace&& other)
+    : capacity(other.capacity),
+      isfull(other.isfull),
+      occupancy(other.occupancy),
+      cars(&parkedCars),
+      parkedCars(other.cars == &other.parkedCars ? std::move(other.parkedCars)
+                                                  : (other.cars != nullptr ? *other.cars : std::vector<Car>{})) {
+    updateOccupancy();
+}
+
+ParkingSpace& ParkingSpace::operator=(ParkingSpace&& other) {
+    if (this == &other) {
+        return *this;
+    }
+
+    capacity = other.capacity;
+    isfull = other.isfull;
+    occupancy = other.occupancy;
+    parkedCars = other.cars == &other.parkedCars ? std::move(other.parkedCars)
+                                                 : (other.cars != nullptr ? *other.cars : std::vector<Car>{});
+    cars = &parkedCars;
+    updateOccupancy();
+    return *this;
+}
 
 /**
  * @brief Purpose: update this space's occupancy value.

@@ -20,10 +20,18 @@ namespace pgof {
  */
 class ParkingSpace {
 public:
+    ParkingSpace();
+    ParkingSpace(const ParkingSpace& other);
+    ParkingSpace& operator=(const ParkingSpace& other);
+    ParkingSpace(ParkingSpace&& other);
+    ParkingSpace& operator=(ParkingSpace&& other);
+
     int capacity{};
     bool isfull{};
     int occupancy{};
     std::vector<Car>* cars{};
+
+    std::vector<Car> parkedCars;
 
     /**
      * @brief Purpose: update this space's occupancy value.

@@ -83,12 +83,33 @@ void PgofApp::submitCar(int size, int requestedTime) {
 }
 
 Car PgofApp::park() {
-    Car parkedCar = parkingLot.park();
+    carQueue.queue = &waitingCars;
+    if (waitingCars.empty()) {
+        return {};
+    }
+
+    const int largestAvailableSpace = parkingLot.getLargestAvailableSpaceCapacity();
+    if (largestAvailableSpace <= 0) {
+        return {};
+    }
+
+    Car selectedCar{};
+    if (parkingLot.canPark(waitingCars.front())) {
+        selectedCar = carQueue.dequeueCar(false);
+    } else {
+        selectedCar = carQueue.dequeueFirstEligible(largestAvailableSpace);
+    }
+
+    if (selectedCar.size <= 0) {
+        return {};
+    }
+
+    Car parkedCar = parkingLot.park(selectedCar);
     if (parkedCar.size <= 0) {
         return parkedCar;
     }
 
-    feeHandler.CalculateIndividualFee(parkedCar.size, parkedCar.reqtime, true);
+    feeHandler.addFee(parkedCar.fee);
     totalFees = feeHandler.getTotalFees();
     ++totalParkedVehicles;
     return parkedCar;
@@ -96,8 +117,8 @@ Car PgofApp::park() {
 
 std::vector<Car> PgofApp::tick() {
     timeHandler.tick();
-    std::vector<Car> unparked;
-    // TODO: Implement tick and unpark expired logic
+    std::vector<Car> unparked = parkingLot.tickParkedCars();
+    park();
     return unparked;
 }
 

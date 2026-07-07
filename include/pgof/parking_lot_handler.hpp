@@ -41,6 +41,16 @@ public:
     ParkingLotHandler(int N1, int N2, int N3);
 
     /**
+     * @brief Return the largest currently empty space capacity.
+     */
+    int getLargestAvailableSpaceCapacity() const;
+
+    /**
+     * @brief Check whether a car can fit in any currently empty space.
+     */
+    bool canPark(const Car& car) const;
+
+    /**
      * @brief Purpose: park a car by triggering dequeueCar behavior.
      * @param None.
      * @return Car selected for parking.
@@ -48,6 +58,16 @@ public:
      * TODO: Connect this outline to CarQueue, ParkingSpace, and FeeHandler.
      */
     Car park();
+
+    /**
+     * @brief Park the supplied car into a compatible empty space.
+     */
+    Car park(Car car);
+
+    /**
+     * @brief Reduce remaining time for parked cars and unpark expired vehicles.
+     */
+    std::vector<Car> tickParkedCars();
 
     /**
      * @brief Purpose: unpark a car from the managed parking spaces.

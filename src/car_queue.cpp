@@ -9,6 +9,8 @@
 
 #include "pgof/car_queue.hpp"
 
+#include <utility>
+
 namespace pgof {
 
 /**
@@ -29,12 +31,35 @@ Car CarQueue::dequeueCar(bool mode) {
         queue->pop();
         return car;
     } else {
-        // Mode 1: Find first eligible car (for fee maximization strategy)
-        // TODO: Implement logic to find compatible car when next can't park
-        Car car = queue->front();
-        queue->pop();
-        return car;
+        // Mode 1: first eligible car when only the smallest compatible space is known.
+        return dequeueFirstEligible(1);
     }
+}
+
+Car CarQueue::dequeueFirstEligible(int maxSize) {
+    if (queue == nullptr || queue->empty() || maxSize <= 0) {
+        return {};
+    }
+
+    std::queue<Car> remainingCars;
+    Car selectedCar{};
+    bool selected = false;
+
+    while (!queue->empty()) {
+        Car currentCar = queue->front();
+        queue->pop();
+
+        if (!selected && currentCar.size <= maxSize) {
+            selectedCar = currentCar;
+            selected = true;
+            continue;
+        }
+
+        remainingCars.push(currentCar);
+    }
+
+    *queue = std::move(remainingCars);
+    return selectedCar;
 }
 
 /**

@@ -35,6 +35,11 @@ public:
     Car dequeueCar(bool Mode);
 
     /**
+     * @brief Dequeue the first car that can fit a space up to maxSize.
+     */
+    Car dequeueFirstEligible(int maxSize);
+
+    /**
      * @brief Purpose: enqueue a car into the waiting line.
      * @param car Car object that should enter the queue.
      * @return Nothing.

@@ -18,7 +18,7 @@ namespace pgof {
  * TODO: Implement time increment and parked-car remaining-time updates.
  */
 void TimeHandler::tick() {
-    // TODO: Implement time tick behavior.
+    ++time;
 }
 
 }  // namespace pgof
