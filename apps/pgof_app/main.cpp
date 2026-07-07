@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
         pgof::PgofApp garage = pgof::createParkingLot(totalSpaces);
 
         const std::vector<ScheduledArrival> arrivals{
-            {1, 3, 10},
+            {1, 3, 10},// time, size, requestedTime
             {1, 1, 4},
             {2, 2, 5},
             {3, 1, 2},

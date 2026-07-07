@@ -1,0 +1,129 @@
+[Tue Jul  7 14:24:27 2026] initialize capacity=10 n1=4 n2=3 n3=3
+[Tue Jul  7 14:24:27 2026] enqueue size=3 requested_time=10 remaining_time=10 fee=0
+[Tue Jul  7 14:24:27 2026] enqueue size=1 requested_time=4 remaining_time=4 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=1
+[Tue Jul  7 14:24:27 2026] parked size=3 requested_time=10 remaining_time=10 fee=30
+[Tue Jul  7 14:24:27 2026] enqueue size=2 requested_time=5 remaining_time=5 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=2
+[Tue Jul  7 14:24:27 2026] parked size=1 requested_time=4 remaining_time=4 fee=4
+[Tue Jul  7 14:24:27 2026] enqueue size=1 requested_time=2 remaining_time=2 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=3
+[Tue Jul  7 14:24:27 2026] parked size=2 requested_time=5 remaining_time=5 fee=10
+[Tue Jul  7 14:24:27 2026] enqueue size=3 requested_time=3 remaining_time=3 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=4
+[Tue Jul  7 14:24:27 2026] parked size=1 requested_time=2 remaining_time=2 fee=2
+[Tue Jul  7 14:24:27 2026] enqueue size=2 requested_time=4 remaining_time=4 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=5
+[Tue Jul  7 14:24:27 2026] parked size=3 requested_time=3 remaining_time=3 fee=9
+[Tue Jul  7 14:24:27 2026] tick time=6
+[Tue Jul  7 14:24:27 2026] expired_unpark size=1 requested_time=4 remaining_time=0 fee=4
+[Tue Jul  7 14:24:27 2026] expired_unpark size=1 requested_time=2 remaining_time=0 fee=2
+[Tue Jul  7 14:24:27 2026] parked size=2 requested_time=4 remaining_time=4 fee=8
+[Tue Jul  7 14:24:27 2026] enqueue size=1 requested_time=3 remaining_time=3 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=7
+[Tue Jul  7 14:24:27 2026] parked size=1 requested_time=3 remaining_time=3 fee=3
+[Tue Jul  7 14:24:27 2026] enqueue size=3 requested_time=2 remaining_time=2 fee=0
+[Tue Jul  7 14:24:27 2026] tick time=8
+[Tue Jul  7 14:24:27 2026] expired_unpark size=2 requested_time=5 remaining_time=0 fee=10
+[Tue Jul  7 14:24:27 2026] expired_unpark size=3 requested_time=3 remaining_time=0 fee=9
+[Tue Jul  7 14:24:27 2026] parked size=3 requested_time=2 remaining_time=2 fee=6
+[Tue Jul  7 14:24:27 2026] tick time=9
+[Tue Jul  7 14:24:27 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:24:27 2026] tick time=10
+[Tue Jul  7 14:24:27 2026] expired_unpark size=1 requested_time=3 remaining_time=0 fee=3
+[Tue Jul  7 14:24:27 2026] expired_unpark size=2 requested_time=4 remaining_time=0 fee=8
+[Tue Jul  7 14:24:27 2026] expired_unpark size=3 requested_time=2 remaining_time=0 fee=6
+[Tue Jul  7 14:24:27 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:24:27 2026] tick time=11
+[Tue Jul  7 14:24:27 2026] expired_unpark size=3 requested_time=10 remaining_time=0 fee=30
+[Tue Jul  7 14:24:27 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:24:27 2026] tick time=12
+[Tue Jul  7 14:24:27 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:24:27 2026] finish started time=12
+[Tue Jul  7 14:24:27 2026] finish complete total_fees=72.000000 total_parked_vehicles=8
+[Tue Jul  7 14:25:14 2026] initialize capacity=10 n1=4 n2=3 n3=3
+[Tue Jul  7 14:25:14 2026] enqueue size=3 requested_time=10 remaining_time=10 fee=0
+[Tue Jul  7 14:25:14 2026] enqueue size=1 requested_time=4 remaining_time=4 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=1
+[Tue Jul  7 14:25:14 2026] parked size=3 requested_time=10 remaining_time=10 fee=30
+[Tue Jul  7 14:25:14 2026] enqueue size=2 requested_time=5 remaining_time=5 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=2
+[Tue Jul  7 14:25:14 2026] parked size=1 requested_time=4 remaining_time=4 fee=4
+[Tue Jul  7 14:25:14 2026] enqueue size=1 requested_time=2 remaining_time=2 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=3
+[Tue Jul  7 14:25:14 2026] parked size=2 requested_time=5 remaining_time=5 fee=10
+[Tue Jul  7 14:25:14 2026] enqueue size=3 requested_time=3 remaining_time=3 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=4
+[Tue Jul  7 14:25:14 2026] parked size=1 requested_time=2 remaining_time=2 fee=2
+[Tue Jul  7 14:25:14 2026] enqueue size=2 requested_time=4 remaining_time=4 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=5
+[Tue Jul  7 14:25:14 2026] parked size=3 requested_time=3 remaining_time=3 fee=9
+[Tue Jul  7 14:25:14 2026] tick time=6
+[Tue Jul  7 14:25:14 2026] expired_unpark size=1 requested_time=4 remaining_time=0 fee=4
+[Tue Jul  7 14:25:14 2026] expired_unpark size=1 requested_time=2 remaining_time=0 fee=2
+[Tue Jul  7 14:25:14 2026] parked size=2 requested_time=4 remaining_time=4 fee=8
+[Tue Jul  7 14:25:14 2026] enqueue size=1 requested_time=3 remaining_time=3 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=7
+[Tue Jul  7 14:25:14 2026] parked size=1 requested_time=3 remaining_time=3 fee=3
+[Tue Jul  7 14:25:14 2026] enqueue size=3 requested_time=2 remaining_time=2 fee=0
+[Tue Jul  7 14:25:14 2026] tick time=8
+[Tue Jul  7 14:25:14 2026] expired_unpark size=2 requested_time=5 remaining_time=0 fee=10
+[Tue Jul  7 14:25:14 2026] expired_unpark size=3 requested_time=3 remaining_time=0 fee=9
+[Tue Jul  7 14:25:14 2026] parked size=3 requested_time=2 remaining_time=2 fee=6
+[Tue Jul  7 14:25:14 2026] tick time=9
+[Tue Jul  7 14:25:14 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:25:14 2026] tick time=10
+[Tue Jul  7 14:25:14 2026] expired_unpark size=1 requested_time=3 remaining_time=0 fee=3
+[Tue Jul  7 14:25:14 2026] expired_unpark size=2 requested_time=4 remaining_time=0 fee=8
+[Tue Jul  7 14:25:14 2026] expired_unpark size=3 requested_time=2 remaining_time=0 fee=6
+[Tue Jul  7 14:25:14 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:25:14 2026] tick time=11
+[Tue Jul  7 14:25:14 2026] expired_unpark size=3 requested_time=10 remaining_time=0 fee=30
+[Tue Jul  7 14:25:14 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:25:14 2026] tick time=12
+[Tue Jul  7 14:25:14 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:25:14 2026] finish started time=12
+[Tue Jul  7 14:25:14 2026] finish complete total_fees=72.000000 total_parked_vehicles=8
+[Tue Jul  7 14:26:43 2026] initialize capacity=10 n1=4 n2=3 n3=3
+[Tue Jul  7 14:27:14 2026] enqueue size=3 requested_time=10 remaining_time=10 fee=0
+[Tue Jul  7 14:27:14 2026] enqueue size=1 requested_time=4 remaining_time=4 fee=0
+[Tue Jul  7 14:27:14 2026] tick time=1
+[Tue Jul  7 14:27:14 2026] parked size=3 requested_time=10 remaining_time=10 fee=30
+[Tue Jul  7 14:27:45 2026] enqueue size=2 requested_time=5 remaining_time=5 fee=0
+[Tue Jul  7 14:27:46 2026] tick time=2
+[Tue Jul  7 14:27:46 2026] parked size=1 requested_time=4 remaining_time=4 fee=4
+[Tue Jul  7 14:27:54 2026] enqueue size=1 requested_time=2 remaining_time=2 fee=0
+[Tue Jul  7 14:27:57 2026] tick time=3
+[Tue Jul  7 14:27:57 2026] parked size=2 requested_time=5 remaining_time=5 fee=10
+[Tue Jul  7 14:27:57 2026] enqueue size=3 requested_time=3 remaining_time=3 fee=0
+[Tue Jul  7 14:27:57 2026] tick time=4
+[Tue Jul  7 14:27:57 2026] parked size=1 requested_time=2 remaining_time=2 fee=2
+[Tue Jul  7 14:27:57 2026] enqueue size=2 requested_time=4 remaining_time=4 fee=0
+[Tue Jul  7 14:27:57 2026] tick time=5
+[Tue Jul  7 14:27:57 2026] parked size=3 requested_time=3 remaining_time=3 fee=9
+[Tue Jul  7 14:27:57 2026] tick time=6
+[Tue Jul  7 14:27:57 2026] expired_unpark size=1 requested_time=4 remaining_time=0 fee=4
+[Tue Jul  7 14:27:57 2026] expired_unpark size=1 requested_time=2 remaining_time=0 fee=2
+[Tue Jul  7 14:27:57 2026] parked size=2 requested_time=4 remaining_time=4 fee=8
+[Tue Jul  7 14:27:57 2026] enqueue size=1 requested_time=3 remaining_time=3 fee=0
+[Tue Jul  7 14:27:57 2026] tick time=7
+[Tue Jul  7 14:27:57 2026] parked size=1 requested_time=3 remaining_time=3 fee=3
+[Tue Jul  7 14:27:57 2026] enqueue size=3 requested_time=2 remaining_time=2 fee=0
+[Tue Jul  7 14:27:57 2026] tick time=8
+[Tue Jul  7 14:27:57 2026] expired_unpark size=2 requested_time=5 remaining_time=0 fee=10
+[Tue Jul  7 14:27:57 2026] expired_unpark size=3 requested_time=3 remaining_time=0 fee=9
+[Tue Jul  7 14:27:57 2026] parked size=3 requested_time=2 remaining_time=2 fee=6
+[Tue Jul  7 14:27:57 2026] tick time=9
+[Tue Jul  7 14:27:57 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:27:57 2026] tick time=10
+[Tue Jul  7 14:27:57 2026] expired_unpark size=1 requested_time=3 remaining_time=0 fee=3
+[Tue Jul  7 14:27:57 2026] expired_unpark size=2 requested_time=4 remaining_time=0 fee=8
+[Tue Jul  7 14:27:57 2026] expired_unpark size=3 requested_time=2 remaining_time=0 fee=6
+[Tue Jul  7 14:27:57 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:27:57 2026] tick time=11
+[Tue Jul  7 14:27:57 2026] expired_unpark size=3 requested_time=10 remaining_time=0 fee=30
+[Tue Jul  7 14:27:57 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:27:57 2026] tick time=12
+[Tue Jul  7 14:27:57 2026] park skipped reason=no_waiting_cars
+[Tue Jul  7 14:27:57 2026] finish started time=12
+[Tue Jul  7 14:27:57 2026] finish complete total_fees=72.000000 total_parked_vehicles=8
