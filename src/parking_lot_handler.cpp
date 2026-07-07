@@ -83,6 +83,18 @@ bool ParkingLotHandler::canPark(const Car& car) const {
     return false;
 }
 
+int ParkingLotHandler::getParkedCarCount() const {
+    int parkedCars = 0;
+
+    for (const ParkingSpace& space : spaces) {
+        if (space.cars != nullptr) {
+            parkedCars += static_cast<int>(space.cars->size());
+        }
+    }
+
+    return parkedCars;
+}
+
 /**
  * @brief Purpose: park a car by triggering dequeueCar behavior.
  * @param None.
@@ -135,6 +147,26 @@ std::vector<Car> ParkingLotHandler::tickParkedCars() {
     }
 
     return expiredCars;
+}
+
+std::vector<Car> ParkingLotHandler::unparkAll() {
+    std::vector<Car> unparkedCars;
+
+    for (ParkingSpace& space : spaces) {
+        if (space.cars == nullptr) {
+            space.updateOccupancy();
+            continue;
+        }
+
+        for (const Car& parkedCar : *space.cars) {
+            unparkedCars.push_back(parkedCar);
+        }
+
+        space.cars->clear();
+        space.updateOccupancy();
+    }
+
+    return unparkedCars;
 }
 
 /**

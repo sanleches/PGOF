@@ -231,6 +231,26 @@ void test_long_running_policy_prefers_fee_maximizing_decisions() {
     expect(app.totalFees == 10.0F, "parking policy should collect fees from eligible long-running decisions");
 }
 
+void test_finish_unparks_all_cars_and_preserves_final_totals() {
+    pgof::PgofApp app{};
+    app.parkingLot = pgof::ParkingLotHandler(2, 0, 0);
+
+    app.enqueueCar(makeCar(1, 4));
+    app.enqueueCar(makeCar(1, 5));
+    app.enqueueCar(makeCar(1, 6));
+
+    app.park();
+    app.park();
+
+    const pgof::PgofReport finalReport = app.finish();
+
+    expect(finalReport.parkedCars == 0, "finish should unpark every currently parked car");
+    expect(finalReport.waitingCars == 0, "finish should clear cars still waiting in line");
+    expect(finalReport.totalFees == 9.0F, "finish should preserve collected fees without double charging");
+    expect(finalReport.totalParkedVehicles == 2, "finish should preserve successful parked vehicle count");
+    expect(app.parkingLot.spaces.front().occupancy == 0, "finish should release occupied spaces");
+}
+
 }  // namespace
 
 int main() {
@@ -249,6 +269,7 @@ int main() {
     test_running_total_fees_are_maintained();
     test_successfully_parked_vehicle_count_is_maintained();
     test_long_running_policy_prefers_fee_maximizing_decisions();
+    test_finish_unparks_all_cars_and_preserves_final_totals();
 
     if (failures != 0) {
         std::cerr << failures << " requirement checks failed.\n";

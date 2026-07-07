@@ -31,7 +31,8 @@ library through this boundary:
 1. `pgof::createParkingLot(totalSpaces)` creates an independent garage instance.
 2. `PgofApp::submitCar(size, requestedTime)` submits autonomous vehicle arrivals.
 3. `PgofApp::tick()` advances the system by exactly one time unit.
-4. `PgofApp::getReport()` and `PgofApp::getReportText()` expose state for clients.
+4. `PgofApp::finish()` ends the run, unparks all parked cars, clears waiting cars, and logs final totals.
+5. `PgofApp::getReport()` and `PgofApp::getReportText()` expose state for clients.
 
 Each `PgofApp` instance is independent. Creating several garages through the
 factory gives several independent parking lots, each with its own capacity split,
@@ -111,6 +112,20 @@ sequence:
 The executable can call `tick()` repeatedly to simulate a long-running operating
 period.
 
+### Shutdown
+
+`PgofApp::finish()` ends a run. It performs this sequence:
+
+1. Log that shutdown has started.
+2. Unpark every currently parked car.
+3. Clear cars still waiting in line.
+4. Preserve the total fees already collected at parking time.
+5. Log the final fee total and final operation summary.
+6. Return a final `PgofReport`.
+
+Shutdown does not charge parked cars again. Fees are collected when a car is
+successfully parked, so charging again during shutdown would double-count.
+
 ### Fees
 
 Fees are charged when a car is successfully parked:
@@ -122,8 +137,17 @@ fee = car_size * parking_time
 The fee is stored on the parked car and added to the running total. The system
 also increments the total number of successfully parked vehicles.
 
-`FeeHandler` also contains file logging support. Runtime fee totals are maintained
-in memory; file logging is optional and is not required for the current DOD.
+Runtime fee totals are maintained in memory by `FeeHandler`.
+
+### Logging
+
+PGOF writes simple append-only runtime logs:
+
+- `fees.log` records collected fees, running totals, and final total.
+- `operations.log` records initialization, enqueue, tick, park, unpark, and finish operations.
+
+Logging is best-effort. If the log files cannot be opened, PGOF continues running
+with in-memory totals and reports.
 
 ## Current Architecture
 
@@ -143,6 +167,7 @@ classDiagram
         submitCar(size, requestedTime)
         park() Car
         tick() List~Car~
+        finish() PgofReport
         getReport() PgofReport
     }
 
@@ -150,8 +175,10 @@ classDiagram
         List~ParkingSpace~ spaces
         getLargestAvailableSpaceCapacity() int
         canPark(car) bool
+        getParkedCarCount() int
         park(car) Car
         tickParkedCars() List~Car~
+        unparkAll() List~Car~
         unpark(car)
     }
 
@@ -184,6 +211,8 @@ classDiagram
         getTotalFees() float
         calculateIndividualFee(carSize, requestedTime) float
         logFeesToFile()
+        logFeeCollected(fee)
+        logOperation(operation)
     }
 
     class GarageCapacityService {
@@ -242,8 +271,14 @@ sequenceDiagram
         App->>Lot: park(selected car)
         Lot->>Space: insert(car)
         App->>Fees: addFee(car.fee)
+        App->>Fees: logFeeCollected(car.fee)
         App-->>Main: expired cars
     end
+
+    Main->>App: finish()
+    App->>Lot: unparkAll()
+    App->>Fees: logFeesToFile()
+    App-->>Main: final report
 
     Main->>App: getReportText()
     App-->>Main: current metrics
@@ -259,7 +294,8 @@ pgof <total-spaces> [ticks]
 
 It creates a parking lot through the factory, submits a deterministic arrival
 schedule, advances time one tick at a time, prints unpark events, and prints
-library reports.
+library reports. At the end of the demo run it calls `finish()` so all parked
+cars are released and final fee totals are logged.
 
 ## Test Coverage
 
@@ -280,6 +316,7 @@ The current CTest suite verifies:
 - total fee tracking.
 - total parked vehicle tracking.
 - scoped long-running fee preference through first-eligible parking.
+- final shutdown/unpark behavior without double-charging fees.
 
 ## Open Design Notes
 
@@ -291,5 +328,3 @@ requirements change:
   fallback rule.
 - `submitCar` currently assumes valid car size and requested duration input.
   Boundary validation can be added if clients may submit invalid values.
-- Fee file logging exists in `FeeHandler`, but the current DOD relies on in-memory
-  totals and reports.

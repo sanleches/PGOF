@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <string>
+
 namespace pgof {
 
 /**
@@ -25,7 +27,17 @@ public:
      *
      * TODO: Define file location, format, and when this should be called.
      */
-    void logFeesToFile();
+    void logFeesToFile() const;
+
+    /**
+     * @brief Log a collected fee and the running total.
+     */
+    void logFeeCollected(float fee) const;
+
+    /**
+     * @brief Log a system operation.
+     */
+    void logOperation(const std::string& operation) const;
 
     /**
      * @brief Purpose: calculate total fees when the system exits.

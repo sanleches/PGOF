@@ -56,7 +56,8 @@ void printUnparkedCars(const std::vector<pgof::Car>& cars) {
 void printStepReport(const pgof::PgofApp& garage) {
     const pgof::PgofReport report = garage.getReport();
     std::cout << "time " << report.currentTime << ": parked total " << report.totalParkedVehicles
-              << ", fees " << report.totalFees << ", waiting " << report.waitingCars << '\n';
+              << ", fees " << report.totalFees << ", waiting " << report.waitingCars
+              << ", currently parked " << report.parkedCars << '\n';
 }
 
 }  // namespace
@@ -96,6 +97,9 @@ int main(int argc, char* argv[]) {
             std::cout << '\n';
         }
 
+        const pgof::PgofReport finalReport = garage.finish();
+        std::cout << "finished run\n";
+        std::cout << "final fees: " << finalReport.totalFees << '\n';
         std::cout << garage.getReportText() << '\n';
     } catch (const std::exception& error) {
         std::cerr << "Failed to run PGOF demo: " << error.what() << '\n';

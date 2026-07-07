@@ -33,6 +33,7 @@ struct PgofReport {
     float totalFees{};
     int currentTime{};
     int waitingCars{};
+    int parkedCars{};
 };
 
 /**
@@ -106,6 +107,11 @@ public:
      * @brief Explicitly release a car from the parking lot.
      */
     void unpark(Car car);
+
+    /**
+     * @brief End the run, unpark all cars, log final totals, and return a final report.
+     */
+    PgofReport finish();
 
     /**
      * @brief Produce a metrics snapshot for final reporting.

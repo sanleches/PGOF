@@ -2,31 +2,58 @@
  * @file fee_handler.cpp
  * @brief Source skeleton for FeeHandler from design.md.
  *
- * This file outlines fee logging and exit-time total calculation. No file I/O
- * or fee calculation logic is implemented yet.
+ * This file implements fee tracking and simple runtime file logging.
  */
 
 #include "pgof/fee_handler.hpp"
-#include <fstream>
+
 #include <chrono>
+#include <ctime>
+#include <fstream>
+#include <string>
+
+namespace {
+
+constexpr const char* feeLogPath = "fees.log";
+constexpr const char* operationLogPath = "operations.log";
+
+std::string timestamp() {
+    const auto now = std::chrono::system_clock::now();
+    const std::time_t time = std::chrono::system_clock::to_time_t(now);
+    std::string value = std::ctime(&time);
+
+    if (!value.empty() && value.back() == '\n') {
+        value.pop_back();
+    }
+
+    return value;
+}
+
+void appendLogLine(const char* path, const std::string& message) {
+    std::ofstream logFile(path, std::ios::app);
+    if (logFile.is_open()) {
+        logFile << '[' << timestamp() << "] " << message << '\n';
+    }
+}
+
+}  // namespace
 
 /**
  * @brief Purpose: log fees to a local file.
  * @param None.
  * @return Nothing.
- *
- * TODO: Implement local fee logging.
  */
-void pgof::FeeHandler::logFeesToFile() {
-    std::ofstream logFile("fees.log", std::ios::app);
-    if (logFile.is_open()) {
-        auto now = std::chrono::system_clock::now();
-        auto time = std::chrono::system_clock::to_time_t(now);
-        logFile << "Timestamp: " << std::ctime(&time);
-        logFile << "Total Fees: " << totalfees << std::endl;
-        logFile << "---" << std::endl;
-        logFile.close();
-    }
+void pgof::FeeHandler::logFeesToFile() const {
+    appendLogLine(feeLogPath, "final_total=" + std::to_string(totalfees));
+}
+
+void pgof::FeeHandler::logFeeCollected(float fee) const {
+    appendLogLine(feeLogPath, "fee_collected=" + std::to_string(fee)
+        + " running_total=" + std::to_string(totalfees));
+}
+
+void pgof::FeeHandler::logOperation(const std::string& operation) const {
+    appendLogLine(operationLogPath, operation);
 }
 
 float pgof::FeeHandler::getTotalFees() const {

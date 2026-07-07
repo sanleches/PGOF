@@ -51,6 +51,11 @@ public:
     bool canPark(const Car& car) const;
 
     /**
+     * @brief Count currently parked cars.
+     */
+    int getParkedCarCount() const;
+
+    /**
      * @brief Purpose: park a car by triggering dequeueCar behavior.
      * @param None.
      * @return Car selected for parking.
@@ -68,6 +73,11 @@ public:
      * @brief Reduce remaining time for parked cars and unpark expired vehicles.
      */
     std::vector<Car> tickParkedCars();
+
+    /**
+     * @brief Unpark every currently parked car.
+     */
+    std::vector<Car> unparkAll();
 
     /**
      * @brief Purpose: unpark a car from the managed parking spaces.
