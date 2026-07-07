@@ -15,14 +15,28 @@ namespace pgof {
  * @param N1 Number of size-1 parking spaces.
  * @param N2 Number of size-2 parking spaces.
  * @param N3 Number of size-3 parking spaces.
- *
- * TODO: Create ParkingSpace objects according to N1, N2, and N3.
  */
 ParkingLotHandler::ParkingLotHandler(int N1, int N2, int N3) {
     n1 = N1;
     n2 = N2;
     n3 = N3;
-    // TODO: Implement ParkingSpace creation from N1, N2, and N3.
+
+    const int totalSpaces = (N1 > 0 ? N1 : 0) + (N2 > 0 ? N2 : 0) + (N3 > 0 ? N3 : 0);
+    spaces.reserve(totalSpaces);
+
+    auto addSpaces = [this](int count, int capacity) {
+        for (int i = 0; i < count; ++i) {
+            ParkingSpace space{};
+            space.capacity = capacity;
+            space.isfull = false;
+            space.occupancy = 0;
+            spaces.push_back(space);
+        }
+    };
+
+    addSpaces(N1, 1);
+    addSpaces(N2, 2);
+    addSpaces(N3, 3);
 }
 
 /**
