@@ -236,6 +236,77 @@ classDiagram
     CarQueue o-- Car : stores waiting cars
 ```
 
+## Workflow And Library Boundaries
+
+This graph shows the full program workflow and the ownership boundary for each
+step. `main` drives the demo, the PGOF library owns the garage behavior, and the
+garage capacity library owns only the capacity split calculation.
+
+```mermaid
+flowchart TD
+    subgraph MainApp["apps/pgof_app main executable"]
+        A["main starts"]
+        B["parse total-spaces and ticks"]
+        C["createParkingLot(totalSpaces)"]
+        D{"each simulation step"}
+        E["submit scheduled arrivals"]
+        F["call garage.tick()"]
+        G["print expired cars and report"]
+        H["call garage.finish()"]
+        I["print final report"]
+    end
+
+    subgraph PgofCore["pgof core library"]
+        J["PgofApp constructor"]
+        K["PgofApp.initialize()"]
+        L["ParkingLotHandler creates N1/N2/N3 spaces"]
+        M["PgofApp.submitCar()"]
+        N["CarQueue.enqueue()"]
+        O["PgofApp.tick() orchestration"]
+        P["TimeHandler.tick()"]
+        Q["ParkingLotHandler.tickParkedCars()"]
+        R["decrement remainingtime"]
+        S["unpark expired cars"]
+        T["PgofApp.park()"]
+        U{"head car fits?"}
+        V["CarQueue.dequeueCar(false)"]
+        W["CarQueue.dequeueFirstEligible(maxSize)"]
+        X["ParkingLotHandler.park(selected car)"]
+        Y["ParkingSpace.insert(car)"]
+        Z["FeeHandler.addFee()"]
+        AA["FeeHandler logs operation and fee"]
+        AB["PgofApp.finish()"]
+        AC["ParkingLotHandler.unparkAll()"]
+        AD["clear waiting queue"]
+        AE["FeeHandler logs final totals"]
+        AF["return PgofReport"]
+    end
+
+    subgraph GarageCapacityLib["garage_capacity library"]
+        AG["calculate_garage_capacity(totalSpaces)"]
+        AH["return n1, n2, n3"]
+    end
+
+    A --> B --> C
+    C --> J --> K
+    K --> AG --> AH --> L
+    L --> D
+
+    D --> E --> M --> N
+    N --> F --> O
+    O --> P --> Q --> R --> S --> T
+    T --> U
+    U -->|"yes"| V
+    U -->|"no"| W
+    V --> X
+    W --> X
+    X --> Y --> Z --> AA --> G
+    S --> G
+    G --> D
+
+    D --> H --> AB --> AC --> AD --> AE --> AF --> I
+```
+
 ## Runtime Sequence
 
 ```mermaid
