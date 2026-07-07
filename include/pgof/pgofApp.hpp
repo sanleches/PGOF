@@ -118,4 +118,9 @@ public:
     std::string getReportText() const;
 };
 
+/**
+ * @brief Factory for independent PGOF parking lot instances.
+ */
+PgofApp createParkingLot(int totalSpaces);
+
 }  // namespace pgof

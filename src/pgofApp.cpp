@@ -154,4 +154,8 @@ std::string PgofApp::getReportText() const {
     return output.str();
 }
 
+PgofApp createParkingLot(int totalSpaces) {
+    return PgofApp{totalSpaces};
+}
+
 }  // namespace pgof
