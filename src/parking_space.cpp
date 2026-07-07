@@ -12,9 +12,8 @@ namespace pgof {
 
 namespace {
 
-bool sameCar(const Car& left, const Car& right) {
-    return left.reqtime == right.reqtime && left.remainingtime == right.remainingtime
-        && left.size == right.size && left.fee == right.fee;
+bool sameCarRequest(const Car& left, const Car& right) {
+    return left.reqtime == right.reqtime && left.size == right.size;
 }
 
 }  // namespace
@@ -36,7 +35,7 @@ void ParkingSpace::updateOccupancy() {
         occupancy += car.size;
     }
 
-    isfull = !cars->empty();
+    isfull = occupancy > 0;
 }
 
 /**
@@ -54,7 +53,8 @@ bool ParkingSpace::checkSpace() const {
  * @return Nothing.
  */
 void ParkingSpace::insert(Car car) {
-    if (cars == nullptr || !cars->empty() || car.size <= 0 || car.size > capacity) {
+    const bool canAcceptCar = cars != nullptr && cars->empty() && car.size > 0 && car.size <= capacity;
+    if (!canAcceptCar) {
         updateOccupancy();
         return;
     }
@@ -76,7 +76,7 @@ void ParkingSpace::remove(Car car) {
     }
 
     for (auto parkedCar = cars->begin(); parkedCar != cars->end(); ++parkedCar) {
-        if (sameCar(*parkedCar, car)) {
+        if (sameCarRequest(*parkedCar, car)) {
             cars->erase(parkedCar);
             break;
         }
