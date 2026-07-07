@@ -60,6 +60,8 @@ void test_invalid_high_input() {
 }
 
 }  // namespace
+//TODO: add unit test for default constructot 
+//TODO Should fail when pgofdefault constructor is called and capacity is not set.
 
 int main() {
     test_minimum_input();

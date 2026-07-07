@@ -5,6 +5,12 @@ project(PGOF VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Debug symbols for debugging
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+endif()
 
 add_subdirectory(libs)
 
@@ -30,14 +36,7 @@ target_link_libraries(pgof_structure
         pgof::garage_capacity
 )
 
-add_executable(pgof
-    main.cpp
-)
-
-target_link_libraries(pgof
-    PRIVATE
-        pgof::structure
-)
+add_subdirectory(apps/pgof_app)
 
 enable_testing()
 add_subdirectory(tests)

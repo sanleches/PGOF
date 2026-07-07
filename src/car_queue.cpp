@@ -18,12 +18,12 @@ namespace pgof {
  *
  * TODO: Implement the queue selection behavior after Mode is fully defined.
  */
-Car CarQueue::dequeueCar(bool Mode) {
+Car CarQueue::dequeueCar(bool mode) {
     if (queue == nullptr || queue->empty()) {
         return {};
     }
 
-    if (Mode == false) {
+    if (mode == false) {
         // Mode 0: Arrival-order (FIFO) - return first car in queue
         Car car = queue->front();
         queue->pop();
