@@ -1,4 +1,7 @@
 # PGOF Design And Definition Of Done
+# By: Santiago Ugarte
+
+All Design and implementation over this Problem was done by Santiago Ugarte.
 
 PGOF is a C++ library plus a small demonstration executable for the Parking
 Garage of the Future problem. The library owns the parking lot state, queue,
